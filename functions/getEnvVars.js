@@ -1,6 +1,6 @@
-exports.handler = async function () {
+exports.handler =  function () {
     console.log('running function getEnvVars.js')
-    let supaUrl = await process.env.supaUrl
+    let supaUrl =  process.env.supaUrl
     console.log('supaUrl is ' = supaUrl)
     return supaUrl
 }

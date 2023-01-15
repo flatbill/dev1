@@ -9,7 +9,7 @@
     console.log('9 running netlify function getEnvVars') 
     return {
     statusCode: 200,
-    headers: {'Access-Control-Allow-Origin': 'http://localhost:4200/'},
+    headers: {'Access-Control-Allow-Origin': 'localhost:4200'},
     body: 'wingoo' //JSON.stringify(ret)
     }
 

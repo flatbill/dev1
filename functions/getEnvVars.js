@@ -1,9 +1,10 @@
-exports.handler = async function (event, context) {
-    const value = process.env.supaUrl
-  
+exports.handler = async function () {
+    let supaUrl = process.env.supaUrl
+    log.console('running function getEnvVars.js')
+    log.console('supaUrl is ' = supaUrl)
     return {
       statusCode: 200,
-      body: JSON.stringify({ message: `Value of supaUrl is ${value}.` })
+      body: JSON.stringify({ message: `supaUrl is ${supaUrl}.` })
     }
   }
   

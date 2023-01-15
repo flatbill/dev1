@@ -4,6 +4,8 @@ exports.handler = async function () {
     log.console('supaUrl is ' = supaUrl)
     return {
       statusCode: 200,
-      body: JSON.stringify({ message: `supaUrl is ${supaUrl}.` })
+      body: JSON.stringify({ message: 'ratss'})
     }
   }
+  //body: JSON.stringify({ message: `supaUrl is ${supaUrl}.` })
+

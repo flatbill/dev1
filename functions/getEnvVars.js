@@ -7,5 +7,10 @@
 
   exports.handler = (event, context) => { 
     console.log('9 running netlify function getEnvVars') 
-  return context.logStreamName
+    return {
+    statusCode: 200,
+    headers: {'Access-Control-Allow-Origin': '*'},
+    body: 'wingoo' //JSON.stringify(ret)
+    }
+
 }

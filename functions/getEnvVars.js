@@ -5,8 +5,11 @@
 //     return supaUrl
 // }
 
+const { request } = require("http")
+
   exports.handler = (event, context) => { 
     console.log('9 running netlify function getEnvVars') 
+    console.log(request.arguments)
     return {
     statusCode: 200,
     headers: {'Access-Control-Allow-Origin': 'localhost:4200'},

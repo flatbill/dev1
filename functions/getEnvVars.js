@@ -9,11 +9,12 @@
   exports.handler = (event, context) => { 
     console.log('10a running netlify function getEnvVars') 
     console.log( process.env.supaUrl )
+    let supaUrl =  process.env.supaUrl 
 
     return {
       statusCode: 200,
       headers: {'Access-Control-Allow-Origin': '*'},
-      body: 'wingoo' //JSON.stringify(ret)
+      body: supaUrl //JSON.stringify(ret)
     }
 
 }

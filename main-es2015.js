@@ -33,13 +33,23 @@ __webpack_require__.r(__webpack_exports__);
 /* Api methods to call /functions */
 
 const getEnvVars = (data) => {
-  return fetch('/.netlify/functions/getEnvVars', {
+  return fetch(`https://flytechfreeplayground.netlify.app/.netlify/functions/getEnvVars`, {
+  //return fetch('/.netlify/functions/getEnvVars', {
     body: JSON.stringify(data),
     method: 'POST'
   }).then(response => {
     return response.json()
   })
 }
+// const qtWriteQuestion = (data) => {
+//   return fetch(`https://qncsurvey.netlify.app/.netlify/functions/qtWriteQuestion`, {
+//     body: JSON.stringify(data),
+//     method: 'POST'
+//   }).then(response => {
+//     return response.json()
+//   })
+// }
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   getEnvVars: getEnvVars
@@ -107,13 +117,14 @@ class AppComponent {
                 console.log('isDevMode = OFF');
             }
             this.myFileName = 'gooboo777.txt';
-            console.log('47');
-            let moo = yield src_utils_apiRat__WEBPACK_IMPORTED_MODULE_1__.default.getEnvVars(); //fails.  i wonder why.
+            console.log('47a');
+            // console.log(moo)
             console.log('49');
             //CREATE EXTENSION supabase_vault CASCADE; duznt work, needs local sql
             //let waitForIt = await this.supaTodoList()  
             //waitForIt = await this.supaGuitars()  
-            let waitForIt = yield this.supaRead('guitars', 'make', 'Martin', 1);
+            let waitForIt = yield this.apiCall();
+            waitForIt = yield this.supaRead('guitars', 'make', 'Martin', 1);
             waitForIt = yield this.supaRead('todoList', 'todoTxt', 'rain', 1);
             waitForIt = yield this.supaRead('guitars', 'guitarType', 'acoustic', 7);
             console.log(Date.now(), 'bottom of ngOnInit');
@@ -346,6 +357,17 @@ class AppComponent {
             // .filter(colNameParmIn,'eq','"eat a dumptruck full of chocolate"')
         });
     } // end supaRead
+    apiCall() {
+        return (0,tslib__WEBPACK_IMPORTED_MODULE_3__.__awaiter)(this, void 0, void 0, function* () {
+            try {
+                const responser = yield src_utils_apiRat__WEBPACK_IMPORTED_MODULE_1__.default.getEnvVars();
+                return responser;
+            }
+            catch (err) {
+                console.log(err);
+            }
+        });
+    }
 } // end appcomponent
 AppComponent.ɵfac = function AppComponent_Factory(t) { return new (t || AppComponent)(); };
 AppComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdefineComponent"]({ type: AppComponent, selectors: [["app-root"]], decls: 40, vars: 6, consts: [[1, "hero", "is-primary"], [1, "subtitle"], [1, "subtitley"], [1, "columns"], [1, "column"], [1, "label"], ["readonly", "", "type", "text", 1, "inputy"], ["id", "tryTruck", 1, "tag", "is-small", "is-info", "m-1", "is-clickable", 3, "click"], ["cols", "166", "rows", "11"]], template: function AppComponent_Template(rf, ctx) { if (rf & 1) {

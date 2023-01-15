@@ -49,13 +49,22 @@
 
 
       var getEnvVars = function getEnvVars(data) {
-        return fetch('/.netlify/functions/getEnvVars', {
+        return fetch("https://flytechfreeplayground.netlify.app/.netlify/functions/getEnvVars", {
+          //return fetch('/.netlify/functions/getEnvVars', {
           body: JSON.stringify(data),
           method: 'POST'
         }).then(function (response) {
           return response.json();
         });
-      };
+      }; // const qtWriteQuestion = (data) => {
+      //   return fetch(`https://qncsurvey.netlify.app/.netlify/functions/qtWriteQuestion`, {
+      //     body: JSON.stringify(data),
+      //     method: 'POST'
+      //   }).then(response => {
+      //     return response.json()
+      //   })
+      // }
+
       /* harmony default export */
 
 
@@ -154,7 +163,7 @@
           key: "ngOnInit",
           value: function ngOnInit() {
             return (0, tslib__WEBPACK_IMPORTED_MODULE_3__.__awaiter)(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-              var moo, waitForIt;
+              var waitForIt;
               return regeneratorRuntime.wrap(function _callee$(_context) {
                 while (1) {
                   switch (_context.prev = _context.next) {
@@ -168,17 +177,17 @@
                       }
 
                       this.myFileName = 'gooboo777.txt';
-                      console.log('47');
-                      _context.next = 6;
-                      return src_utils_apiRat__WEBPACK_IMPORTED_MODULE_1__["default"].getEnvVars();
+                      console.log('47a'); // console.log(moo)
 
-                    case 6:
-                      moo = _context.sent;
-                      //fails.  i wonder why.
                       console.log('49'); //CREATE EXTENSION supabase_vault CASCADE; duznt work, needs local sql
                       //let waitForIt = await this.supaTodoList()  
                       //waitForIt = await this.supaGuitars()  
 
+                      _context.next = 7;
+                      return this.apiCall();
+
+                    case 7:
+                      waitForIt = _context.sent;
                       _context.next = 10;
                       return this.supaRead('guitars', 'make', 'Martin', 1);
 
@@ -471,6 +480,36 @@
             }));
           } // end supaRead
 
+        }, {
+          key: "apiCall",
+          value: function apiCall() {
+            return (0, tslib__WEBPACK_IMPORTED_MODULE_3__.__awaiter)(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
+              var responser;
+              return regeneratorRuntime.wrap(function _callee3$(_context3) {
+                while (1) {
+                  switch (_context3.prev = _context3.next) {
+                    case 0:
+                      _context3.prev = 0;
+                      _context3.next = 3;
+                      return src_utils_apiRat__WEBPACK_IMPORTED_MODULE_1__["default"].getEnvVars();
+
+                    case 3:
+                      responser = _context3.sent;
+                      return _context3.abrupt("return", responser);
+
+                    case 7:
+                      _context3.prev = 7;
+                      _context3.t0 = _context3["catch"](0);
+                      console.log(_context3.t0);
+
+                    case 10:
+                    case "end":
+                      return _context3.stop();
+                  }
+                }
+              }, _callee3, null, [[0, 7]]);
+            }));
+          }
         }]);
 
         return _AppComponent;

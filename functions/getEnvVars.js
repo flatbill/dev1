@@ -5,7 +5,7 @@
 //     return supaUrl
 // }
 
-exports.handler =  async function(event, context) {
-  console.log("EVENT: \n" + JSON.stringify(event, null, 2))
+  exports.handler = (event, context) => { 
+    console.log('9 running netlify function getEnvVars') 
   return context.logStreamName
 }

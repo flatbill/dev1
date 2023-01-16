@@ -6,18 +6,15 @@
 // }
 
 
-  exports.handler = async (event, context) => { 
+  exports.handler =  (event, context) => { 
     console.log('10a running netlify function getEnvVars') 
     console.log( process.env.supaUrl )
     let supaUrl =  process.env.supaUrl 
     return {
-      statusCode: 200,
-      body: "Hello, Worldy"
+      statusCode: 201,
+      headers: {'Access-Control-Allow-Origin': '*'},
+      body: JSON.stringify({ x: 5, y: 6 })
     }
-    // return {
-    //   statusCode: 200,
-    //   headers: {'Access-Control-Allow-Origin': '*'},
-    //   body: supaUrl //JSON.stringify(ret)
-    // }
+    
 
 }

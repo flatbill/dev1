@@ -2,7 +2,7 @@
 let myFaunaCollection = 'qtUsers'
 /* Import faunaDB sdk */
 //const faunadb = require('faunadb')
-const fetch = require("node-fetch")
+// const fetch = require("node-fetch")
 const supabase = require('@supabase/supabase-js') //billy
 // const q = faunadb.query
 

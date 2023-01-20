@@ -13,7 +13,7 @@ exports.handler = (event, context) => {
     secret: process.env.FAUNADB_SERVER_SECRET2
   }) 
 
-  console.log('Netlify Function getEnvVars invoked.')
+  console.log('Netlify Function readUsers2 invoked.')
   
   // return client.query(q.Paginate(q.Match(q.Index('qtUsersX1'),[myCust,myQid]),{ size: 500 }))
   return client.query(q.Paginate(q.Match(q.Index('qtUsersX1'),[myCust,myQid]),{ size: 500 }))

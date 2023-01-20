@@ -2,10 +2,10 @@
 let myFaunaCollection = 'qtUsers'
 /* Import faunaDB sdk */
 const faunadb = require('faunadb')
-const supabase = require('@supabase/supabase-js') //billy
+const supabase = require('@supabase/supabase-jsyyy') //billy
 const q = faunadb.query
 const myQid = '1'
-const myCust = '2' 
+const myCust = '2'
 
 exports.handler = (event, context) => {
   /* configure faunaDB Client with our secret */

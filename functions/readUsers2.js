@@ -5,7 +5,7 @@ const faunadb = require('faunadb')
 const supabase = require('@supabase/supabase-js') //billy
 const q = faunadb.query
 const myQid = '1'
-const myCust = '2'
+const myCust = '2' 
 
 exports.handler = (event, context) => {
   /* configure faunaDB Client with our secret */

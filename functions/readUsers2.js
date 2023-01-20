@@ -2,19 +2,14 @@
 let myFaunaCollection = 'qtUsers'
 /* Import faunaDB sdk */
 //const faunadb = require('faunadb')
+const fetch = require("node-fetch")
 const supabase = require('@supabase/supabase-js') //billy
-const q = faunadb.query
-const myQid = '1'
-const myCust = '2'
+// const q = faunadb.query
 
 exports.handler = (event, context) => {
   console.log('Netlify Function readUsers2 invoked.')
-
-  /* configure faunaDB Client with our secret */
-  // const client = new faunadb.Client({
-  //   secret: process.env.FAUNADB_SERVER_SECRET2
-  // }) 
-
+  const myQid = '1'
+  const myCust = '2'
   const supaUrl = process.environment.supaUrl
   const supaAnonKey = process.environment.supaAnonKey
   supaClient = createClient(supaUrl, supaAnonKey)
@@ -27,7 +22,7 @@ exports.handler = (event, context) => {
     console.log('responser from db:', responser)
     console.log(`${responser.length} responsers found`)
     const getAllqtUsersDataQuery = responser.map((ref) => {
-      return q.Get(ref)
+      return supaClient.Get(ref)
     })
     // then query the refs
     return supaClient.query(getAllqtUsersDataQuery).then((ret) => {

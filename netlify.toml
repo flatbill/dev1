@@ -1,6 +1,6 @@
 #[functions]
 #  directory = "functions"
- # external_node_modules = ["@supabase/supabase-js"]
+# external_node_modules = ["@supabase/supabase-js"]
 [build]
   functions = "functions"
-  command = "CI= npm run build1"
+#command = "CI= npm run build1"

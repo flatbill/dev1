@@ -4,9 +4,9 @@ let myFaunaCollection = 'qtUsers'
 //const faunadb = require('faunadb')
 // const fetch = require("node-fetch")
 // const supabaser = require('@supabase/supabase-js') //billy
-const supabaser = require('https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm')  
+// const supabaser = require('https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm')  
 
-//import createClient from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+import supabaser from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
 // const q = faunadb.query
 
 exports.handler = (event, context) => {

@@ -3,4 +3,4 @@
 # external_node_modules = ["@supabase/supabase-js"]
 [build]
   functions = "functions"
-command = "CI= npm run build"
+#command = "CI= npm run build"

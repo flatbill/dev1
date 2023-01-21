@@ -3,8 +3,10 @@ let myFaunaCollection = 'qtUsers'
 /* Import faunaDB sdk */
 //const faunadb = require('faunadb')
 // const fetch = require("node-fetch")
-// const supabase = require('@supabase/supabase-js') //billy
-import createClient from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+// const supabaser = require('@supabase/supabase-js') //billy
+const supabaser = require('https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm')  
+
+//import createClient from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
 // const q = faunadb.query
 
 exports.handler = (event, context) => {
@@ -13,11 +15,11 @@ exports.handler = (event, context) => {
   const myCust = '2'
   const supaUrl = process.environment.supaUrl
   const supaAnonKey = process.environment.supaAnonKey
-  supaClient = createClient(supaUrl, supaAnonKey)
+  supaClient = supabaser.createClient(supaUrl, supaAnonKey)
     //   let { data: todoList, error } = await this.supaClient
 
   // return client.query(q.Paginate(q.Match(q.Index('qtUsersX1'),[myCust,myQid]),{ size: 500 }))
-  return supaClient.createClient(supaUrl, supaAnonKey)
+  return supaClient  //.createClient(supaUrl, supaAnonKey)
     .then((response) => {
     const responser = response.data
     console.log('responser from db:', responser)

@@ -1,6 +1,6 @@
 
 let myFaunaCollection = 'qtUsers'
-import { ViewRef } from "@angular/core"
+// import { ViewRef } from "@angular/core"
 /* Import faunaDB sdk */
 //const faunadb = require('faunadb')
 // const fetch = require("node-fetch")

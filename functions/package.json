@@ -3,7 +3,7 @@
   "name": "dev1",
   "version": "0.0.0",
   "scripts": {
-    "https://cdn.jsdelivr.net/npm/@supabase/supabase-js"
+    "bingoRat": "https://cdn.jsdelivr.net/npm/@supabase/supabase-js"
   },
   "private": true,
   "dependencies": {

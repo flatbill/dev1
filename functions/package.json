@@ -5,8 +5,7 @@
   },
   "private": true,
   "dependencies": {
-    "supabase" : "1.34.5",
-    "rats" : "1.1.1"
+    "supabase" : "1.34.567"
    }
   
 }

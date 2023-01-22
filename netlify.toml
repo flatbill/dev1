@@ -2,7 +2,7 @@
 #  directory = "functions"
 # external_node_modules = ["@supabase/supabase-js"]
 [build]
-  functions = "functions"
+  functions = "./functions" #"functions
 #command = "CI= npm run build"
 [[plugins]]
  package = "@netlify/plugin-functions-install-core"

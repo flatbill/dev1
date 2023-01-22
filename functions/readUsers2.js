@@ -6,8 +6,9 @@ let myFaunaCollection = 'qtUsers'
 // const supabaser = require('@supabase/supabase-js') //billy
 // const supabaser = require('https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm')  
 
-//import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js'
-import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+// import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js'
+// import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+const sb = require( 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js')
 
 
 // const q = faunadb.query

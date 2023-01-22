@@ -5,7 +5,7 @@
   },
   "private": true,
   "dependencies": {
-    "supabase" : "1.34.567"
+    "supabase" : "1.34.5"
    }
   
 }

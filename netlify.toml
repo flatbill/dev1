@@ -4,3 +4,5 @@
 [build]
   functions = "functions"
 #command = "CI= npm run build"
+[[plugins]]
+ package = "@netlify/plugin-functions-install-core"

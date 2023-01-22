@@ -5,7 +5,7 @@
   },
   "private": true,
   "dependencies": {
-    "supabase-js": "^0.0"
+    "@supabase": "^0.0"
    }
   
 }

@@ -5,7 +5,8 @@
   },
   "private": true,
   "dependencies": {
-    "@supabase": "*"
+    "@supabase": "*",
+    "@supabase/supabase-js" : "*"
    }
   
 }

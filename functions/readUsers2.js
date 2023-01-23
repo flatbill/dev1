@@ -16,7 +16,7 @@ let myFaunaCollection = 'qtUsers'
 //import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js'
 // const q = faunadb.query //billy
 //let sb = require('@supabase/supabase-js') //billy//
-import { createClient } from '@supabase/supabase-js'
+import { createClient } from '@supabasey/supabase-js'
 exports.handler = async (event, context, callback) => {
   console.log('Netlify Function readUsers2 invoked.')
   const myQid = '1'

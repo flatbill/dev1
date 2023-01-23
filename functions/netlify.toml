@@ -1,5 +1,0 @@
-#[functions."readUsers2"]
-#  included_files = ["@supabase/supabase-js"]
-#  external_node_modules = ["@supabase/supabase-js"]
- [functions]
-  directory = "functions"

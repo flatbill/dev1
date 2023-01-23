@@ -1,8 +1,5 @@
-#[functions]
-#  directory = "functions"
-# external_node_modules = ["@supabase/supabase-js"]
-[build]
-  functions = "./functions" #"functions
-#command = "CI= npm run build"
-[[plugins]]
- package = "@netlify/plugin-functions-install-core"
+#[functions.readUsers2]
+#  external_node_modules = ["@supabase/supabase-js"]
+# Include all files in all functions
+[functions]
+  included_files = ["@supabase/supabase-js"]

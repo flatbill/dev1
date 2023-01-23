@@ -30,6 +30,7 @@ exports.handler = async (event, context, callback) => {
     body: JSON.stringify(obj1)
   }
   const supaClient = createClient(supaUrl, supaAnonKey)
+  const x = supaClient.length
   // const response1 = await fetch(POKE_API)
   // const response2 = await fetch(supa_API)
     //   let { data: todoList, error } = await this.supaClient

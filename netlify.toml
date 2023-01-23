@@ -2,3 +2,4 @@
   external_node_modules = ["@supabase/supabase-js"]
  [functions]
   included_files = ["@supabase/supabase-js"]
+  directory = "functions"

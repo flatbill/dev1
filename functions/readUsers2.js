@@ -16,7 +16,7 @@ const {helloWorld} = require('./utils')
 
 
 // const q = faunadb.query
-exports.handler = (event, context) => {
+exports.handler = (event, context, callback) => {
   console.log('20 Netlify Function readUsers2 invoked.')
   const supaAnonKey = process.environment.supaAnonKey
   //console.log('supaAnonKey has been set to ', supaAnonKey)

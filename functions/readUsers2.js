@@ -22,7 +22,7 @@ exports.handler = async (event, context, callback) => {
   const supaUrl = process.env.supaUrl
   const supaAnonKey = process.env.supaAnonKey
   console.log('23 readUser2.js')
-  const supaClient = createClient(supaUrl, supaAnonKey)
+  //const supaClient = createClient(supaUrl, supaAnonKey)
   const response1 = await fetch(POKE_API)
   const response2 = await fetch(supa_API)
     //   let { data: todoList, error } = await this.supaClient

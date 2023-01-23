@@ -1,9 +1,9 @@
 
 let myFaunaCollection = 'qtUsers'
 /* Import faunaDB sdk */
-//const faunadb = require('faunadb')
+const faunadb = require('faunadb')
 // const fetch = require("node-fetch")
-import fetch from 'node-fetch'
+//import fetch from 'node-fetch'
 // const supabaser = require('@supabase/supabase-js') //billy
 // const supabaser = require('https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm')  
 
@@ -16,16 +16,16 @@ import fetch from 'node-fetch'
 // const q = faunadb.query
 exports.handler = async (event, context, callback) => {
   console.log('Netlify Function readUsers2 invoked.')
-  const POKE_API = 'https://pokeapi.co/api/v2/pokedex/kanto'
-  const supa_API = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js'
+  ////const POKE_API = 'https://pokeapi.co/api/v2/pokedex/kanto'
+  //const supa_API = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js'
   const myQid = '1'
   const myCust = '2'
   const supaUrl = process.env.supaUrl
   const supaAnonKey = process.env.supaAnonKey
   console.log('23 readUser2.js')
   //const supaClient = createClient(supaUrl, supaAnonKey)
-  const response1 = await fetch(POKE_API)
-  const response2 = await fetch(supa_API)
+  // const response1 = await fetch(POKE_API)
+  // const response2 = await fetch(supa_API)
     //   let { data: todoList, error } = await this.supaClient
 
   // return client.query(q.Paginate(q.Match(q.Index('qtUsersX1'),[myCust,myQid]),{ size: 500 }))

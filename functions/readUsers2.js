@@ -5,7 +5,8 @@ let myFaunaCollection = 'qtUsers'
 //const faunadb = require('faunadb')
 // const fetch = require("node-fetch")
 // supabaser = require('supabase')
-const {helloWorld} = require('./utils')
+//const {helloWorld} = require('./utils')
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
 //const {supabaser} = require('./utils/supabase')
 // const supabaser = require('https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm')  
 

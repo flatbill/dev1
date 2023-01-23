@@ -1,5 +1,5 @@
 
-let myFaunaCollection = 'qtUsers' //
+let myFaunaCollection = 'qtUsers'
 /* Import faunaDB sdk */
 //const faunadb = require('faunadb')
 // const fetch = require("node-fetch")
@@ -33,7 +33,8 @@ exports.handler = async (event, context, callback) => {
   // const response1 = await fetch(POKE_API)
   // const response2 = await fetch(supa_API)
     //   let { data: todoList, error } = await this.supaClient
-
+   return hangMe
+   ////////////////////////////////////////
   // return client.query(q.Paginate(q.Match(q.Index('qtUsersX1'),[myCust,myQid]),{ size: 500 }))
   return supaClient.createClient(supaUrl, supaAnonKey)
     .then((response) => {
@@ -49,7 +50,7 @@ exports.handler = async (event, context, callback) => {
   }).catch((error) => {
     console.log('error', error)
     return {
-      statusCode: 404,
+      statusCode: 405,
       body: JSON.stringify(error)
     }
   })  

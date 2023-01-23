@@ -17,10 +17,12 @@ const {helloWorld} = require('./utils')
 
 // const q = faunadb.query
 exports.handler = (event, context) => {
-  console.log('Netlify Function readUsers2 invoked.')
+  console.log('20 Netlify Function readUsers2 invoked.')
+  const supaAnonKey = process.environment.supaAnonKey
+  console.log('supaAnonKey has been set to ', supaAnonKey)
   const supaUrl = process.environment.supaUrl
   console.log('supaUrl has been set to', supaUrl)
-  const supaAnonKey = process.environment.supaAnonKey
+
   const supaClient = createClient(supaUrl, supaAnonKey)
 
     //   let { data: todoList, error } = await this.supaClient

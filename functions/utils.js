@@ -4,3 +4,6 @@ exports.helloWorld = () => {
      console.log('hello world2222')
      
 }
+exports.anotherFunc = () => {
+  console.log('another func')
+}

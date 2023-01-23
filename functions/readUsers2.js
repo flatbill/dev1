@@ -11,14 +11,16 @@ let myFaunaCollection = 'qtUsers'
 // import { v4 } from "https://deno.land/std@0.136.0/uuid/mod.ts"
 // const sb = require( 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js')
 //const sb = require('supabase')
-import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+//import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
 // const q = faunadb.query
 exports.handler = (event, context, callback) => {
   console.log('Netlify Function readUsers2 invoked.')
+  const POKE_API = 'https://pokeapi.co/api/v2/pokedex/kanto'
   const myQid = '1'
   const myCust = '2'
   const supaUrl = process.env.supaUrl
   const supaAnonKey = process.env.supaAnonKey
+  console.log('23 readUser2.js')
   const supaClient = createClient(supaUrl, supaAnonKey)
 
     //   let { data: todoList, error } = await this.supaClient

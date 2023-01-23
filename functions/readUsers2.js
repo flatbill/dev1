@@ -19,10 +19,10 @@ const {helloWorld} = require('./utils')
 exports.handler = (event, context) => {
   console.log('20 Netlify Function readUsers2 invoked.')
   const supaAnonKey = process.environment.supaAnonKey
-  console.log('supaAnonKey has been set to ', supaAnonKey)
+  //console.log('supaAnonKey has been set to ', supaAnonKey)
   const supaUrl = process.environment.supaUrl
-  console.log('supaUrl has been set to', supaUrl)
-
+  // console.log('supaUrl has been set to', supaUrl)
+  console.log('readUser2 line 25')
   const supaClient = createClient(supaUrl, supaAnonKey)
 
     //   let { data: todoList, error } = await this.supaClient

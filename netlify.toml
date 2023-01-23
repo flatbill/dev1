@@ -4,3 +4,4 @@
  [functions]
   included_files = ["@supabase/supabase-js"]
   directory = "functions"
+  node_bundler = "esbuild"

@@ -13,16 +13,18 @@ let myFaunaCollection = 'qtUsers'
 //const sb = require('supabase')
 //import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
 // const q = faunadb.query
-exports.handler = (event, context, callback) => {
+exports.handler = async (event, context, callback) => {
   console.log('Netlify Function readUsers2 invoked.')
   const POKE_API = 'https://pokeapi.co/api/v2/pokedex/kanto'
+  const supa_API = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js'
   const myQid = '1'
   const myCust = '2'
   const supaUrl = process.env.supaUrl
   const supaAnonKey = process.env.supaAnonKey
   console.log('23 readUser2.js')
   const supaClient = createClient(supaUrl, supaAnonKey)
-
+  const response1 = await fetch(POKE_API)
+  const response2 = await fetch(supa_API)
     //   let { data: todoList, error } = await this.supaClient
 
   // return client.query(q.Paginate(q.Match(q.Index('qtUsersX1'),[myCust,myQid]),{ size: 500 }))

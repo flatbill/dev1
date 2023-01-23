@@ -3,6 +3,9 @@
 #  external_node_modules = ["@supabase\supabase-js"]
 #
  [functions]
-  external_node_modules = ["@supabase\supabase-js"]
+  external_node_modules = [
+    "@supabase\supabase-js",
+    "@supabase/gotrue-js"
+    ]
   directory = "functions"
   node_bundler = "esbuild"

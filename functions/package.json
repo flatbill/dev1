@@ -1,8 +1,0 @@
-{
-  "name": "dev1FunctionTrials",
-  "version": "0.0.0",
-  "private": true,
-  "dependencies": { 
-    "@supabase/supabase-js": "^2.4.1"  
-   } 
-}

@@ -1,7 +1,7 @@
-const {helloWorld} = require('./utils')
-
+//const {helloWorld} = require('./utils')
+const {anotherFunc} = require('./utils')
 exports.handler = async (event) => {
-  helloWorld()
+  //helloWorld()
   anotherFunc()
   console.log('we ran helloWorld function.  joy.')  
 }

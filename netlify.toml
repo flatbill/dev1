@@ -1,5 +1,4 @@
-#[functions.readUsers2]
-#  external_node_modules = ["@supabase/supabase-js"]
-# Include all files in all functions
-[functions]
+[functions.readUsers2]
+  external_node_modules = ["@supabase/supabase-js"]
+ [functions]
   included_files = ["@supabase/supabase-js"]

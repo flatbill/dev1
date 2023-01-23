@@ -1,29 +1,24 @@
 
 let myFaunaCollection = 'qtUsers'
-// import { ViewRef } from "@angular/core"
 /* Import faunaDB sdk */
 //const faunadb = require('faunadb')
 // const fetch = require("node-fetch")
-// supabaser = require('supabase')
-//const {helloWorld} = require('./utils')
-import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
-//const {supabaser} = require('./utils/supabase')
+// const supabaser = require('@supabase/supabase-js') //billy
 // const supabaser = require('https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm')  
 
 // import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js'
 // import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
-//import { v4 } from "https://deno.land/std@0.136.0/uuid/mod.ts"
+// import { v4 } from "https://deno.land/std@0.136.0/uuid/mod.ts"
 // const sb = require( 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js')
-
-
+//const sb = require('supabase')
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
 // const q = faunadb.query
 exports.handler = (event, context, callback) => {
-  console.log('20 Netlify Function readUsers2 invoked.')
-  const supaAnonKey = process.env.supaAnonKey
-  //console.log('supaAnonKey has been set to ', supaAnonKey)
+  console.log('Netlify Function readUsers2 invoked.')
+  const myQid = '1'
+  const myCust = '2'
   const supaUrl = process.env.supaUrl
-  // console.log('supaUrl has been set to', supaUrl)
-  console.log('readUser2 line 25')
+  const supaAnonKey = process.env.supaAnonKey
   const supaClient = createClient(supaUrl, supaAnonKey)
 
     //   let { data: todoList, error } = await this.supaClient

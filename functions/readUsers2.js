@@ -1,5 +1,5 @@
 
-let myFaunaCollection = 'qtUsers'
+let myFaunaCollection = 'qtUsers' //
 /* Import faunaDB sdk */
 //const faunadb = require('faunadb')
 // const fetch = require("node-fetch")

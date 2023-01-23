@@ -18,9 +18,9 @@ const {helloWorld} = require('./utils')
 // const q = faunadb.query
 exports.handler = (event, context, callback) => {
   console.log('20 Netlify Function readUsers2 invoked.')
-  const supaAnonKey = process.environment.supaAnonKey
+  const supaAnonKey = process.env.supaAnonKey
   //console.log('supaAnonKey has been set to ', supaAnonKey)
-  const supaUrl = process.environment.supaUrl
+  const supaUrl = process.env.supaUrl
   // console.log('supaUrl has been set to', supaUrl)
   console.log('readUser2 line 25')
   const supaClient = createClient(supaUrl, supaAnonKey)

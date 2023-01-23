@@ -29,13 +29,13 @@ exports.handler = async (event, context, callback) => {
     headers: {'Access-Control-Allow-Origin': '*'},
     body: JSON.stringify(obj1)
   }
-  //const supaClient = createClient(supaUrl, supaAnonKey)
+  const supaClient = createClient(supaUrl, supaAnonKey)
   // const response1 = await fetch(POKE_API)
   // const response2 = await fetch(supa_API)
     //   let { data: todoList, error } = await this.supaClient
 
   // return client.query(q.Paginate(q.Match(q.Index('qtUsersX1'),[myCust,myQid]),{ size: 500 }))
-  return // supaClient.createClient(supaUrl, supaAnonKey)
+  return supaClient.createClient(supaUrl, supaAnonKey)
     .then((response) => {
     const responser = response.data
     console.log('responser from db:', responser)

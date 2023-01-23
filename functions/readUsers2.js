@@ -6,7 +6,7 @@ let myFaunaCollection = 'qtUsers'
 // const fetch = require("node-fetch")
 // supabaser = require('supabase')
 const {helloWorld} = require('./utils')
-const {supabaser} = require('./utils/supabase')
+//const {supabaser} = require('./utils/supabase')
 // const supabaser = require('https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm')  
 
 // import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js'
@@ -18,9 +18,8 @@ const {supabaser} = require('./utils/supabase')
 // const q = faunadb.query
 exports.handler = (event, context) => {
   console.log('Netlify Function readUsers2 invoked.')
-  const myQid = '1'
-  const myCust = '2'
   const supaUrl = process.environment.supaUrl
+  console.log('supaUrl has been set to', supaUrl)
   const supaAnonKey = process.environment.supaAnonKey
   const supaClient = createClient(supaUrl, supaAnonKey)
 

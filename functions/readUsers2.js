@@ -4,7 +4,7 @@ let myFaunaCollection = 'qtUsers'
 //const faunadb = require('faunadb')
 // const fetch = require("node-fetch")
 //import fetch from 'node-fetch'
-// y const supabaser = require('@supabase/supabase-js') //billy
+const supabaser = require('@supabase/supabase-js') //billy
 // const supabaser = require('https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm')  
 
 // import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js'
@@ -23,32 +23,32 @@ exports.handler = async (event, context, callback) => {
   const supaUrl = process.env.supaUrl
   const supaAnonKey = process.env.supaAnonKey
   console.log('23 readUser2.js')
+  const hangMe = {
+    statusCode: 200,
+    headers: {'Access-Control-Allow-Origin': '*'},
+    body: JSON.stringify('hangMe')
+  }
   //const supaClient = createClient(supaUrl, supaAnonKey)
   // const response1 = await fetch(POKE_API)
   // const response2 = await fetch(supa_API)
     //   let { data: todoList, error } = await this.supaClient
 
   // return client.query(q.Paginate(q.Match(q.Index('qtUsersX1'),[myCust,myQid]),{ size: 500 }))
-  return supaClient  //.createClient(supaUrl, supaAnonKey)
+  return supaClient.createClient(supaUrl, supaAnonKey)
     .then((response) => {
     const responser = response.data
     console.log('responser from db:', responser)
     console.log(`${responser.length} responsers found`)
-    const getAllqtUsersDataQuery = responser.map((ref) => {
-      return supaClient.Get(ref)
-    })
+    // const getAllqtUsersDataQuery = responser.map((ref) => {
+    //   return supaClient.Get(ref)
+    // })
     // then query the refs
-    return supaClient.query(getAllqtUsersDataQuery).then((ret) => {
-      return {
-        statusCode: 200,
-        headers: {'Access-Control-Allow-Origin': '*'},
-        body: JSON.stringify(ret)
-      }
-    })
+    //return supaClient.query(getAllqtUsersDataQuery).then((ret) => {
+      return hangMe 
   }).catch((error) => {
     console.log('error', error)
     return {
-      statusCode: 400,
+      statusCode: 404,
       body: JSON.stringify(error)
     }
   })  

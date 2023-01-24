@@ -1,6 +1,5 @@
 
-let myFaunaCollection = 'qtUsers'
-/* Import faunaDB sdk */
+
 //const faunadb = require('faunadb')
 // const fetch = require("node-fetch")
 //import fetch from 'node-fetch'
@@ -15,29 +14,27 @@ let myFaunaCollection = 'qtUsers'
 //import { createClient } from '@supabase/supabase-js'
 //import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js'
 // const q = faunadb.query //billy
-//let sb = require('@supabase/supabase-js') //billy//
-import { createClient } from '@supabase/supabase-js'
+let supabase = require('@supabase/supabase-js') 
+//import { createClient } from '@supabase/supabase-js'
 exports.handler = async (event, context, callback) => {
   console.log('Netlify Function readUsers2 invoked.')
   const myQid = '1'
   const myCust = '2'
   const supaUrl = process.env.supaUrl
   const supaAnonKey = process.env.supaAnonKey
-  console.log('23 readUser2.js')
-  const obj1 = {name: "John", age: 30, city: "New York"}
-  const hangMe = {
+  console.log('line 25 readUser2.js')
+  const myObj1 = {firstName: "Bill", age: 60, city: "Ocala"}
+  const genericResponse = {
     statusCode: 200,
     headers: {'Access-Control-Allow-Origin': '*'},
-    body: JSON.stringify(obj1)
+    body: JSON.stringify(myObj1)
   }
-  const supabase = await createClient(supaUrl, supaAnonKey)
-  const x = supaClient.length
-  console.log(x)
-  // const response1 = await fetch(POKE_API)
-  // const response2 = await fetch(supa_API)
-    //   let { data: todoList, error } = await this.supaClient
-   return hangMe
-   ////////////////////////////////////////
+  //const supabase = await createClient(supaUrl, supaAnonKey)
+  console.log(typeof supabase)
+  console.log('line 34 readUser2.js')
+
+  return genericResponse
+  ////////////////////////////////////////
   // return client.query(q.Paginate(q.Match(q.Index('qtUsersX1'),[myCust,myQid]),{ size: 500 }))
   return supabase.createClient(supaUrl, supaAnonKey)
     .then((response) => {

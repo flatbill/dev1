@@ -1,4 +1,4 @@
-let supabase = require('@supabase/supabase-js') 
+// let supabase = require('@supabase/supabase-js') 
 exports.handler = async (event, context, callback) => {
   console.log('running Netlify Function readUsers2')
   const supaUrl = process.env.supaUrl
@@ -14,7 +14,7 @@ exports.handler = async (event, context, callback) => {
     headers: {'Access-Control-Allow-Origin': '*'},
     body: JSON.stringify(myObj1)
   }
-  console.log(typeof supabase)
+  // console.log(typeof supabase)
   console.log('we reached line 18 readUser2.js')
 
   return genericResponse

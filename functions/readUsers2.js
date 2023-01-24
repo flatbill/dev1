@@ -30,7 +30,7 @@ exports.handler = async (event, context, callback) => {
     headers: {'Access-Control-Allow-Origin': '*'},
     body: JSON.stringify(obj1)
   }
-  const supabase = createClient(supaUrl, supaAnonKey)
+  const supabase = await createClient(supaUrl, supaAnonKey)
   const x = supaClient.length
   console.log(x)
   // const response1 = await fetch(POKE_API)

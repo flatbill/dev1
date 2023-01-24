@@ -8,6 +8,6 @@
  [functions]
    directory = "functions"
   # external_node_modules = ["@supabase/supabase-js"]
-[[plugins]]
+#[[plugins]]
  # package = "@netlify/plugin-functions-install-core"
 

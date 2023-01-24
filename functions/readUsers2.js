@@ -32,6 +32,7 @@ exports.handler = async (event, context, callback) => {
   }
   const supabase = createClient(supaUrl, supaAnonKey)
   const x = supaClient.length
+  console.log(x)
   // const response1 = await fetch(POKE_API)
   // const response2 = await fetch(supa_API)
     //   let { data: todoList, error } = await this.supaClient

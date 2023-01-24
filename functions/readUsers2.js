@@ -1,4 +1,4 @@
-// let supabase = require('@supabase/supabase-js') 
+let supabase = require('@supabase/supabase-js') 
 exports.handler = async (event, context, callback) => {
   console.log('running Netlify Function readUsers2')
   const supaUrl = process.env.supaUrl

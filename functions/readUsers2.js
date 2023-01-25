@@ -18,7 +18,8 @@ exports.handler = async (event, context, callback) => {
   }
   // console.log(typeof supabase)
   console.log('we reached line 18 readUser2.js')
-
+  const { data } = await supabase.from('guitars').select().match({ id: 1 })
+  console.log(typeof data)
   return genericResponse
 }
   ////////////////////////////////////////

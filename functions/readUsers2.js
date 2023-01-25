@@ -8,8 +8,8 @@ exports.handler = async (event, context, callback) => {
   console.log(typeof supaAnonKey )
   console.log('we reached line 9 readUser2.js')
   const supabaseClient = createClient(supaUrl,supaAnonKey)
-  console.log('supabaseClient type:')
-  console.log(supabaseClient.typeof)
+  console.log('11 supabaseClient type:')
+  console.log(typeof supabaseClient)
   const myObj1 = {firstName: "Bill", age: 60, city: "Ocala"}
   const genericResponse = {
     statusCode: 200,

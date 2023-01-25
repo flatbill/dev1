@@ -21,11 +21,17 @@ exports.handler = async (event, context, callback) => {
   console.log(typeof data)
   console.table(data)
   fun7()
+  supaResponse = {
+    statusCode: 201,
+    headers: {'Access-Control-Allow-Origin': '*'},
+    body: JSON.stringify(data)
+  }
   console.log('we reached the end of Supabase.js')
-  return genericResponse
+  // return genericResponse
+  return supaResponse
 }
 
 function fun7(){
-  console.log('running function7')
+  console.log('running fun7')
 }
   ////////////////////////////////////////

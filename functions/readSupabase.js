@@ -31,7 +31,7 @@ exports.handler = async (event, context, callback) => {
     // console.table(data)
     // console.log(data)
     // } 
-  }
+  })
   
 
   // console.log(Object.getOwnPropertyNames(data[0]))

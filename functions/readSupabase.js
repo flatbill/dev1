@@ -23,7 +23,7 @@ exports.handler = async (event, context, callback) => {
   console.log(Date.now())
   
   // const {data}  = await supabaseClient.from('guitars').select().match({ id: 1 })
-  return await supabaseClient.from('guitars').select().match({ id: 1 })
+  return supabaseClient.from('guitars').select().match({ id: 1 })
   .then ((response) => {
     return callback(null, 
       { statusCode : '206', 

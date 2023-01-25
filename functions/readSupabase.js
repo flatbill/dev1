@@ -1,17 +1,16 @@
 import { createClient } from '@supabase/supabase-js' 
-exports.handler = async (event, context, callback) => {
+exports.handler = async (event, context) => {
   console.log('running Netlify lambda function: readSupabase')
-  const data = JSON.parse(event.body)
   const supaUrl = process.env.supaUrl
   const supaAnonKey = process.env.supaAnonKey
   console.log('we reached line 6 readSupabase.js')
-  console.log(typeof supaUrl )
-  console.log(typeof supaAnonKey )
+  console.log(typeof supaUrl)
+  console.log(typeof supaAnonKey)
   console.log('we reached line 9 readSupabase.js')
   const supabaseClient = createClient(supaUrl,supaAnonKey)
   console.log('11 supabaseClient type:')
   console.log(typeof supabaseClient)
-  const myObj1 = {firstName: "Billy", age: 63, city: "Ocala"}
+  const myObj1 = {nickName: "Fang", age: 63, city: "Ocala"}
   const genericResponse = {
     statusCode: 222,
     headers: {'Access-Control-Allow-Origin': '*'},
@@ -20,12 +19,13 @@ exports.handler = async (event, context, callback) => {
   console.log('we reached line 19 readSupabase.js')
   console.log(Date.now())
   
-  data  = await supabaseClient.from('guitars').select().match({ id: 1 })
+  const data  = await supabaseClient.from('guitars').select().match({ id: 1 })
   console.log('date now is: ', Date.now())
   console.log(typeof data)
   console.table(data)
-  console.log(Object.getOwnPropertyNames(data[0]))
-  console.log(Object.keys(data[0]))
+  console.log(data)
+  // console.log(Object.getOwnPropertyNames(data[0]))
+  // console.log(Object.keys(data[0]))
   fun7()
   supaResponse = {
     statusCode: 200,

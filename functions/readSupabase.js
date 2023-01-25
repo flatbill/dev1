@@ -22,8 +22,10 @@ exports.handler = async (event, context, callback) => {
   console.table(data)
   console.log('we reached line 23 readUser2.js')
 
+  const result = event.data.x * event.data.x
+  return { statusCode: 208, body: result }
 
-  return genericResponse // duznt do anything?  lambda has automatic return at the end?
+  //return genericResponse // duznt do anything?  lambda has automatic return at the end?
 }
   ////////////////////////////////////////
 

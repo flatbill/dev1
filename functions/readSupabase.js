@@ -23,13 +23,13 @@ exports.handler = async (event, context, callback) => {
   console.log('date now is: ', Date.now())
   console.log(typeof data)
   console.table(data)
-  console.log(Object.getOwnPropertyNames(data))
-  console.log(Object.keys(data))
+  console.log(Object.getOwnPropertyNames(data[0]))
+  console.log(Object.keys(data[0]))
   fun7()
   supaResponse = {
     statusCode: 203,
     headers: {'Access-Control-Allow-Origin': '*'},
-    body: JSON.stringify(data)
+    body: JSON.stringify(myObj1)
   }
   // body: JSON.stringify(data)
 

@@ -29,7 +29,7 @@ exports.handler = async (event, context, callback) => {
   supaResponse = {
     statusCode: 203,
     headers: {'Access-Control-Allow-Origin': '*'},
-    body: JSON.stringify(myObj1)
+    body: JSON.stringify(data[0])
   }
   // body: JSON.stringify(data)
 

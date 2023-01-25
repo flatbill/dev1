@@ -1,3 +1,4 @@
  [functions]
    directory = "functions"
+ [functions.readUsers2]
    external_node_modules = ["@supabase/supabase-js"]

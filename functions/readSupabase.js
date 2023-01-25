@@ -2,7 +2,7 @@ import { createClient } from '@supabase/supabase-js'
 const supaUrl = process.env.supaUrl
 const supaAnonKey = process.env.supaAnonKey
 const supabaseClient = createClient(supaUrl,supaAnonKey)
-exports.handler = async (event, context, callback) => {
+exports.handler =  (event, context, callback) => {
   console.log('running Netlify lambda function: readSupabase')
   // const supaUrl = process.env.supaUrl
   // const supaAnonKey = process.env.supaAnonKey
@@ -23,12 +23,12 @@ exports.handler = async (event, context, callback) => {
   console.log(Date.now())
   
   // const {data}  = await supabaseClient.from('guitars').select().match({ id: 1 })
-  return supabaseClient.from('guitars').select().match({ id: 1 })
-  .then ((response) => {
+  //return supabaseClient.from('guitars').select().match({ id: 1 })
+  //.then ((response) => {
     return callback(null, 
       { statusCode : '206', 
         headers: {'Access-Control-Allow-Origin': '*'},
-        body: JSON.stringify(response)
+        body: JSON.stringify({ data: 'foo'})
       })
     // console.log('date now is: ', Date.now())
     // console.log(typeof data)

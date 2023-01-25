@@ -23,6 +23,7 @@ exports.handler = async (event, context, callback) => {
   console.log('date now is: ', Date.now())
   console.log(typeof data)
   console.table(data)
+  console.log(Object.getOwnPropertyNames(data))
   console.log(Object.keys(data))
   fun7()
   supaResponse = {

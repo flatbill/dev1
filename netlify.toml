@@ -1,13 +1,2 @@
-#[functions."readUsers2"]
-#  included_files = ["@supabase/supabase-js"]
-# # node_bundler = "esbuild"
- # external_node_modules = [
- #   "@supabase/supabase-js",
-  #  "@supabase/gotrue-js"
-  #   ]
- [functions]
-   directory = "functions"
-  # external_node_modules = ["@supabase/supabase-js"]
-[[plugins]]
- package = "@netlify/plugin-functions-install-core"
-
+[functions]
+  directory = "functions"

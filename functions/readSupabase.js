@@ -20,10 +20,10 @@ exports.handler = async (event, context, callback) => {
   console.log(Date.now())
   
   const { data } = await supabaseClient.from('guitars').select().match({ id: 1 })
-  console.log(Date.now())
-  console.log(typeof data)
+  console.log('date now is: ', Date.now())
   console.log(typeof data)
   console.table(data)
+  console.log(Object.keys(data))
   fun7()
   supaResponse = {
     statusCode: 203,

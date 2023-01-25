@@ -20,10 +20,11 @@ exports.handler = async (event, context, callback) => {
   const { data } = await supabaseClient.from('guitars').select().match({ id: 1 })
   console.log(typeof data)
   console.table(data)
+  
   console.log('we reached line 23 readUser2.js')
 
   const result = event.data
-  return { statusCode: 208, body: result }
+  return { statusCode: 208, body: JSON.stringify(data) }
 
   //return genericResponse // duznt do anything?  lambda has automatic return at the end?
 }

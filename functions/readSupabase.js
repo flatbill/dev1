@@ -35,7 +35,7 @@ exports.handler =  (event, context, callback) => {
     // console.table(data)
     // console.log(data)
     // } 
-  })
+  }
   
 
   // console.log(Object.getOwnPropertyNames(data[0]))
@@ -52,7 +52,7 @@ exports.handler =  (event, context, callback) => {
   // console.log('we reached the end of Supabase.js')
   // return genericResponse
   // return supaResponse
-}
+//}
 
 function fun7(){
   console.log('running fun7')

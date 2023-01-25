@@ -17,7 +17,9 @@ exports.handler = async (event, context, callback) => {
     body: JSON.stringify(myObj1)
   }
   console.log('we reached line 19 readSupabase.js')
+  console.log(Date.now())
   const { data } = await supabaseClient.from('guitars').select().match({ id: 1 })
+  console.log(Date.now())
   console.log(typeof data)
   console.table(data)
   fun7()
@@ -26,6 +28,7 @@ exports.handler = async (event, context, callback) => {
     headers: {'Access-Control-Allow-Origin': '*'},
     body: JSON.stringify(data)
   }
+  console.log(Date.now())
   console.log('we reached the end of Supabase.js')
   // return genericResponse
   return supaResponse
@@ -33,5 +36,6 @@ exports.handler = async (event, context, callback) => {
 
 function fun7(){
   console.log('running fun7')
+  console.log(Date.now())
 }
   ////////////////////////////////////////

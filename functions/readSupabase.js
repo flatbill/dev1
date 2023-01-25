@@ -25,9 +25,9 @@ exports.handler = async (event, context, callback) => {
   console.table(data)
   fun7()
   supaResponse = {
-    statusCode: 202,
+    statusCode: 203,
     headers: {'Access-Control-Allow-Origin': '*'},
-    body: data
+    body: JSON.data
   }
   // body: JSON.stringify(data)
 

@@ -19,23 +19,18 @@ exports.handler = async (event, context, callback) => {
   console.log('we reached line 19 readSupabase.js')
   console.log(Date.now())
   
-  const { data1 } = await supabaseClient.from('guitars').select().match({ id: 1 })
+  const { data } = await supabaseClient.from('guitars').select().match({ id: 1 })
   console.log(Date.now())
-  console.log(typeof data1)
-  console.log(typeof data1)
-  console.log(typeof data1)
-  console.log(typeof data1)
-  console.log(typeof data1)
-  console.log(typeof data1)
-  console.log(typeof data1)
-  console.table(data1)
+  console.log(typeof data)
+  console.log(typeof data)
+  console.table(data)
   fun7()
   supaResponse = {
     statusCode: 203,
     headers: {'Access-Control-Allow-Origin': '*'},
-    body: JSON.stringify(data1)
+    body: JSON.stringify(data)
   }
-  // body: JSON.stringify(data1)
+  // body: JSON.stringify(data)
 
   console.log(Date.now())
   console.log('we reached the end of Supabase.js')

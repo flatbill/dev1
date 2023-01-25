@@ -16,10 +16,10 @@ exports.handler = async (event, context, callback) => {
     headers: {'Access-Control-Allow-Origin': '*'},
     body: JSON.stringify(myObj1)
   }
-  // console.log(typeof supabase)
-  console.log('we reached line 18 readUser2.js')
+  console.log('we reached line 19 readUser2.js')
   const { data } = await supabase.from('guitars').select().match({ id: 1 })
   console.log(typeof data)
+  console.log('we reached line 23 readUser2.js')
   return genericResponse
 }
   ////////////////////////////////////////

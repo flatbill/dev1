@@ -25,7 +25,11 @@ exports.handler = async (event, context, callback) => {
   // const {data}  = await supabaseClient.from('guitars').select().match({ id: 1 })
   return await supabaseClient.from('guitars').select().match({ id: 1 })
   .then ((response) => {
-    return callback(null, {statusCode : '200', body: JSON.stringify(response)})
+    return callback(null, 
+      { statusCode : '206', 
+        headers: {'Access-Control-Allow-Origin': '*'},
+        body: JSON.stringify(response)
+      })
     // console.log('date now is: ', Date.now())
     // console.log(typeof data)
     // console.table(data)

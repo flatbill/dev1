@@ -19,7 +19,8 @@ exports.handler = async (event, context, callback) => {
   console.log('we reached line 19 readUser2.js')
   const { data } = await supabaseClient.from('guitars').select().match({ id: 1 })
   console.log(typeof data)
-  console.log('we reached line 2 readUser2.js')
+  console.table(data)
+  console.log('we reached line 23 readUser2.js')
   return genericResponse
 }
   ////////////////////////////////////////

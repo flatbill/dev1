@@ -18,6 +18,7 @@ exports.handler = async (event, context, callback) => {
   }
   console.log('we reached line 19 readSupabase.js')
   console.log(Date.now())
+  
   const { data } = await supabaseClient.from('guitars').select().match({ id: 1 })
   console.log(Date.now())
   console.log(typeof data)
@@ -26,8 +27,10 @@ exports.handler = async (event, context, callback) => {
   supaResponse = {
     statusCode: 202,
     headers: {'Access-Control-Allow-Origin': '*'},
-    body: JSON.stringify(data)
+    body: data
   }
+  // body: JSON.stringify(data)
+
   console.log(Date.now())
   console.log('we reached the end of Supabase.js')
   // return genericResponse

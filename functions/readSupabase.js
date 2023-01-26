@@ -34,18 +34,22 @@ exports.handler = async (event, context) => {
     body: JSON.stringify(myObj1)
   }
   console.log('we reached line 36 readSupabase')
-  const { data } = await supabaseClient.from('guitars').select().match({ id: 1 })
-  console.log(typeof data)
-  console.table(data)
+  const { res1 } = await supabaseClient.from('guitars').select().match({ id: 1 })
+  console.log(typeof res1)
+  console.table(res1)
+  console.table(res1)
+  console.table(res1)
+  console.table(res1)
+  console.table(res1)
   
   console.log('we reached line 41 readSupabase')
-  console.table(event.data)
-  console.table(event.body)
-  console.log('we reached line 44 readSupabase')
+  // console.table(event.data)
+  // console.table(event.body)
+  // console.log('we reached line 44 readSupabase')
 
-  const result = event.data
-  console.table(event.data)
-  return { statusCode: 208, body: JSON.stringify(result) }
+  // const something = event.data  // this is input to this lamda, i think
+  // return { statusCode: 208, body: JSON.stringify(something) }
+  return { genericResponse }
 
   //return genericResponse // duznt do anything?  lambda has automatic return at the end?
 }

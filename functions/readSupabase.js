@@ -39,9 +39,13 @@ exports.handler = async (event, context) => {
   console.table(data)
   
   console.log('we reached line 41 readSupabase')
+  console.table(event.data)
+  console.table(event.body)
+  console.log('we reached line 44 readSupabase')
 
-  //const result = event.data
-  return { statusCode: 208, body: JSON.stringify(data) }
+  const result = event.data
+  console.table(event.data)
+  return { statusCode: 208, body: JSON.stringify(result) }
 
   //return genericResponse // duznt do anything?  lambda has automatic return at the end?
 }

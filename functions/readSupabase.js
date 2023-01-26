@@ -1,15 +1,20 @@
 // import { createClient } from '@supabase/supabase-js' 
-// const supaUrl = process.env.supaUrl
-// const supaAnonKey = process.env.supaAnonKey
+const supaUrl = process.env.supaUrl
+const supaAnonKey = process.env.supaAnonKey
+const myObj1 = {firstName: "Bill", age: 60, city: "Ocala"}
+
 // const supabaseClient = createClient(supaUrl,supaAnonKey)
 
 exports.handler = (event, context, callback) => { 
   console.log('running supabase lambda function')
+  console.log(supaUrl.length)
+  console.log(supaAnonKey.length)
+
   callback(null, { 
-    statusCode: 200, 
+    statusCode: 201, 
     headers: {'Access-Control-Allow-Origin': '*'},
-    body: "Hello, World 👋🏻🇨🇴" 
-  }); };
+    body: "Hello Worldy" 
+  })  } 
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 // exports.handler = async (event, context, callback) => {

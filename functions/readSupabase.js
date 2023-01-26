@@ -3,7 +3,11 @@
 // const supaAnonKey = process.env.supaAnonKey
 // const supabaseClient = createClient(supaUrl,supaAnonKey)
 
-exports.handler = (event, context, callback) => { callback(null, { statusCode: 200, body: "Hello, World 👋🏻🇨🇴" }); };
+exports.handler = (event, context, callback) => { 
+  callback(null, { 
+    statusCode: 200, 
+    body: "Hello, World 👋🏻🇨🇴" 
+  }); };
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 // exports.handler = async (event, context, callback) => {

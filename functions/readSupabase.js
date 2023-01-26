@@ -37,7 +37,7 @@ exports.handler = async (event, context) => {
   const { data } = await supabaseClient.from('guitars').select().match({ id: 1 })
   console.log(typeof data)
   console.table(data)  // only appears when the field name is 'data'. blaming supabase.
-
+  console.log(data.isArray)
   console.log('we reached line 41 readSupabase')
 
   let supabaseData = data
@@ -53,7 +53,8 @@ exports.handler = async (event, context) => {
   const myResponse = {
     statusCode: 205,
     headers: {'Access-Control-Allow-Origin': '*'},
-    body: supabaseData
+    body: JSON.stringify(supabaseData)
+
   }
   console.log('we reached line 58 readSupabase')
 

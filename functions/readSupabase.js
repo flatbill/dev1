@@ -1,7 +1,7 @@
-import { createClient } from '@supabase/supabase-js' 
-const supaUrl = process.env.supaUrl
-const supaAnonKey = process.env.supaAnonKey
-const supabaseClient = createClient(supaUrl,supaAnonKey)
+// import { createClient } from '@supabase/supabase-js' 
+// const supaUrl = process.env.supaUrl
+// const supaAnonKey = process.env.supaAnonKey
+// const supabaseClient = createClient(supaUrl,supaAnonKey)
 
 exports.handler = (event, context, callback) => { callback(null, { statusCode: 200, body: "Hello, World 👋🏻🇨🇴" }); };
 ////////////////////////////////////////////////////////////////////////////////////////////

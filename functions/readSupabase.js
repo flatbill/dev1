@@ -32,7 +32,7 @@ exports.handler = (event, context, callback) => { callback(null, { statusCode: 2
 //   return { statusCode: 208, body: JSON.stringify(data) }
 
   //return genericResponse // duznt do anything?  lambda has automatic return at the end?
-}
+// }
   ////////////////////////////////////////
 
 

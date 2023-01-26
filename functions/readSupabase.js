@@ -40,7 +40,8 @@ exports.handler = async (event, context) => {
   console.log(data[0].make)
   console.log('we reached line 41 readSupabase')
 
-  let supabaseData = data
+  let supabaseData = new Object
+  supabaseData = data
   console.table(supabaseData)
   console.table(Object.keys(supabaseData))
   console.log('we reached line 47 readSupabase')

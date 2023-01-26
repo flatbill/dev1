@@ -4,6 +4,7 @@
 // const supabaseClient = createClient(supaUrl,supaAnonKey)
 
 exports.handler = (event, context, callback) => { 
+  console.log('running supabase lambda function')
   callback(null, { 
     statusCode: 200, 
     headers: {'Access-Control-Allow-Origin': '*'},

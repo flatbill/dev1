@@ -37,7 +37,7 @@ exports.handler = async (event, context) => {
   const { data } = await supabaseClient.from('guitars').select().match({ id: 1 })
   console.log(typeof data)
   console.table(data)  // only appears when the field name is 'data'. blaming supabase.
-  console.log(data.isArray)
+  console.log(data[0].make)
   console.log('we reached line 41 readSupabase')
 
   let supabaseData = data

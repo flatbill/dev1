@@ -1,49 +1,50 @@
-// import { createClient } from '@supabase/supabase-js' 
+// // import { createClient } from '@supabase/supabase-js' 
+// const supaUrl = process.env.supaUrl
+// const supaAnonKey = process.env.supaAnonKey
+// const myObj1 = {firstName: "Bill", age: 60, city: "Ocala"}
+
+// // const supabaseClient = createClient(supaUrl,supaAnonKey)
+
+// exports.handler = (event, context, callback) => { 
+//   console.log('running supabase lambda function')
+//   console.log(supaUrl.length)
+//   console.log(supaAnonKey.length)
+
+//   callback(null, { 
+//     statusCode: 201, 
+//     headers: {'Access-Control-Allow-Origin': '*'},
+//     body: "Hello Worldy" 
+//   })  } 
+////////////////////////////////////////////////////////////////////////////////////////////
+import { createClient } from '@supabase/supabase-js' 
 const supaUrl = process.env.supaUrl
 const supaAnonKey = process.env.supaAnonKey
-const myObj1 = {firstName: "Bill", age: 60, city: "Ocala"}
-
-// const supabaseClient = createClient(supaUrl,supaAnonKey)
-
-exports.handler = (event, context, callback) => { 
-  console.log('running supabase lambda function')
-  console.log(supaUrl.length)
-  console.log(supaAnonKey.length)
-
-  callback(null, { 
-    statusCode: 201, 
+const supabaseClient = createClient(supaUrl,supaAnonKey)
+exports.handler = async (event, context) => {
+  console.log('running Netlify lambda function: readSupabase')
+  console.log(typeof supaUrl )
+  console.log(typeof supaAnonKey )
+  console.log('we reached line 27 readUser2.js')
+  console.log('11 supabaseClient type:')
+  console.log(typeof supabaseClient)
+  const myObj1 = {firstName: "Bill", age: 60, city: "Ocala"}
+  const genericResponse = {
+    statusCode: 201,
     headers: {'Access-Control-Allow-Origin': '*'},
-    body: "Hello Worldy" 
-  })  } 
-////////////////////////////////////////////////////////////////////////////////////////////
-
-// exports.handler = async (event, context, callback) => {
-//   console.log('running Netlify lambda function: readUsers2')
-
-//   console.log('we reached line 6 readUser2.js')
-//   console.log(typeof supaUrl )
-//   console.log(typeof supaAnonKey )
-//   console.log('we reached line 9 readUser2.js')
-//   console.log('11 supabaseClient type:')
-//   console.log(typeof supabaseClient)
-//   const myObj1 = {firstName: "Bill", age: 60, city: "Ocala"}
-//   const genericResponse = {
-//     statusCode: 207,
-//     headers: {'Access-Control-Allow-Origin': '*'},
-//     body: JSON.stringify(myObj1)
-//   }
-//   console.log('we reached line 19 readUser2.js')
-//   const { data } = await supabaseClient.from('guitars').select().match({ id: 1 })
-//   console.log(typeof data)
-//   console.table(data)
+    body: JSON.stringify(myObj1)
+  }
+  console.log('we reached line 36 readSupabase')
+  const { data } = await supabaseClient.from('guitars').select().match({ id: 1 })
+  console.log(typeof data)
+  console.table(data)
   
-//   console.log('we reached line 23 readUser2.js')
+  console.log('we reached line 41 readSupabase')
 
-//   const result = event.data
-//   return { statusCode: 208, body: JSON.stringify(data) }
+  const result = event.data
+  return { statusCode: 208, body: JSON.stringify(data) }
 
   //return genericResponse // duznt do anything?  lambda has automatic return at the end?
-// }
+}
   ////////////////////////////////////////
 
 

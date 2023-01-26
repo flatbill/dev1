@@ -55,7 +55,8 @@ exports.handler = async (event, context) => {
     body: JSON.stringify(supabaseData)
   }
   console.log('we reached line 57 readSupabase')
-  return myResponse  //return to the caller of this lambda, hopefully with a nice myResponse
+  return genericResponse  //is this the preflight?
+  .then((rango) => { return myResponse})
 
   //return genericResponse // duznt do anything?  lambda has automatic return at the end?
   // but only if you are using it with a callback?

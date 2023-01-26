@@ -42,6 +42,7 @@ exports.handler = async (event, context) => {
 
   let supabaseData = data
   console.table(supabaseData)
+  console.table(Object.keys(supabaseData))
   console.log('we reached line 47 readSupabase')
   // console.table(event.data)
   // console.table(event.body)
@@ -52,15 +53,16 @@ exports.handler = async (event, context) => {
   const myResponse = {
     statusCode: 205,
     headers: {'Access-Control-Allow-Origin': '*'},
-    body: JSON.stringify(supabaseData)
+    body: supabaseData
   }
-  console.log('we reached line 57 readSupabase')
-  return genericResponse  //is this the preflight?
-  .then((rango) => { return myResponse})
+  console.log('we reached line 58 readSupabase')
+
+  return myResponse  //this duznt work?
 
   //return genericResponse // duznt do anything?  lambda has automatic return at the end?
   // but only if you are using it with a callback?
-}
+
+} // end export.handler =>
   ////////////////////////////////////////
 
 

@@ -29,20 +29,20 @@ exports.handler = async (event, context) => {
   console.log(typeof supabaseClient)
   const myObj1 = {firstName: "Bill", age: 60, city: "Ocala"}
   const genericResponse = {
-    statusCode: 201,
+    statusCode: 202,
     headers: {'Access-Control-Allow-Origin': '*'},
     body: JSON.stringify(myObj1)
   }
   console.log('we reached line 36 readSupabase')
   const { data } = await supabaseClient.from('guitars').select().match({ id: 1 })
   console.log(typeof data)
-  console.table(data)
-  console.table(data)
-  console.table(data)
-  console.table(data)
-  console.table(data)
-  
+  console.table(data)  // only appears when the field name is 'data'. blaming supabase.
+
   console.log('we reached line 41 readSupabase')
+
+  let supabaseData = data
+  console.table(supabaseData)
+  console.log('we reached line 47 readSupabase')
   // console.table(event.data)
   // console.table(event.body)
   // console.log('we reached line 44 readSupabase')

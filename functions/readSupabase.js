@@ -24,7 +24,7 @@ exports.handler = async (event, context) => {
   console.log('running Netlify lambda function: readSupabase')
   console.log(typeof supaUrl )
   console.log(typeof supaAnonKey )
-  console.log('we reached line 27 readUser2.js')
+  console.log('we reached line 27 readSupabase')
   console.log('11 supabaseClient type:')
   console.log(typeof supabaseClient)
   const myObj1 = {firstName: "Bill", age: 60, city: "Ocala"}
@@ -40,7 +40,7 @@ exports.handler = async (event, context) => {
   
   console.log('we reached line 41 readSupabase')
 
-  const result = event.data
+  //const result = event.data
   return { statusCode: 208, body: JSON.stringify(data) }
 
   //return genericResponse // duznt do anything?  lambda has automatic return at the end?

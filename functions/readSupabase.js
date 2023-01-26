@@ -49,9 +49,16 @@ exports.handler = async (event, context) => {
 
   // const something = event.data  // this is input to this lamda, i think
   // return { statusCode: 208, body: JSON.stringify(something) }
-  return { genericResponse }
+  const myResponse = {
+    statusCode: 203,
+    headers: {'Access-Control-Allow-Origin': '*'},
+    body: JSON.stringify(supabaseData)
+  }
+  console.log('we reached line 57 readSupabase')
+  return { myResponse } //return to the caller of this lambda, hopefully with a nice myResponse
 
   //return genericResponse // duznt do anything?  lambda has automatic return at the end?
+  // but only if you are using it with a callback?
 }
   ////////////////////////////////////////
 

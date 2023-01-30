@@ -39,12 +39,12 @@ exports.handler = async (event, context) => {
   // console.log(maxRows)
   console.log('40 supabaseClient type:')
   console.log(typeof supabaseClient)
-  // const myObj1 = {firstName: "Bill", age: 60, city: "Ocala"}
-  // const genericResponse = {
-  //   statusCode: 202,
-  //   headers: {'Access-Control-Allow-Origin': '*'},
-  //   body: JSON.stringify(myObj1)
-  // }
+  const myObj1 = {firstName: "Bill", age: 60, city: "Ocala"}
+  const genericResponse = {
+    statusCode: 202,
+    headers: {'Access-Control-Allow-Origin': '*'},
+    body: JSON.stringify(myObj1)
+  }
   console.log('we reached line 36 readSupabase')    
   // const { data } = await supabaseClient.from('guitars').select().match({ id: 1 })
   // const { data } = await supabaseClient.from('guitars').select().eq('make', 'Martin')
@@ -52,7 +52,7 @@ exports.handler = async (event, context) => {
   .from(tableName).select().eq(tableField, lookupVal)
   console.log(typeof data)
   console.table(data)  // only appears when the field name is 'data'. blaming supabase.
-  console.log(data[0].make)  //this works, so data must be an array?
+  // console.log(data[0].make)  //this works, so data must be an array?
   console.log('we reached line 55 readSupabase')
 
   // let supabaseData = new Object

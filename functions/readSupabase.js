@@ -21,15 +21,16 @@ const supaUrl = process.env.supaUrl
 const supaAnonKey = process.env.supaAnonKey
 const supabaseClient = createClient(supaUrl,supaAnonKey)
 ////
-const urlSearchParams = new URLSearchParams(window.location.search);
-const parms = Object.fromEntries(urlSearchParams.entries());
-console.log(parms)
 ////
 exports.handler = async (event, context) => {
   console.log('running Netlify lambda function: readSupabase')
   console.log(typeof supaUrl )
   console.log(typeof supaAnonKey )
   console.log('we reached line 27 readSupabase')
+  const urlSearchParams = new URLSearchParams(window.location.search)
+  const parms = Object.fromEntries(urlSearchParams.entries())
+  console.log(parms)
+
   console.log('11 supabaseClient type:')
   console.log(typeof supabaseClient)
   const myObj1 = {firstName: "Bill", age: 60, city: "Ocala"}

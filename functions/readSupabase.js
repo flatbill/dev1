@@ -46,6 +46,7 @@ exports.handler = async (event, context) => {
   //   body: JSON.stringify(myObj1)
   // }
   console.log('we reached line 36 readSupabase')
+    return
   // const { data } = await supabaseClient.from('guitars').select().match({ id: 1 })
   // const { data } = await supabaseClient.from('guitars').select().eq('make', 'Martin')
   const { data } = await supabaseClient

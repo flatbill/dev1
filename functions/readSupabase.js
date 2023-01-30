@@ -27,9 +27,10 @@ exports.handler = async (event, context) => {
   console.log(typeof supaUrl )
   console.log(typeof supaAnonKey )
   console.log('we reached line 27 readSupabase')
-  const pogo = event.queryStringParameters
-  console.table(pogo)
-
+  const qsParms = event.queryStringParameters
+  console.table(qsParms)
+  const tableNameIn = querystring.tableNameIn || 'myDefaultTableName'
+  console.log(tableNameIn)
   console.log('11 supabaseClient type:')
   console.log(typeof supabaseClient)
   const myObj1 = {firstName: "Bill", age: 60, city: "Ocala"}

@@ -33,24 +33,24 @@ exports.handler = async (event, context) => {
   const tableField = qsParms.tableField  || 'myDefaultTableField'
   const lookupVal  = qsParms.lookupVal   || 'myDefaultLookupVal'
   const maxRows    = qsParms.maxRows     || 'myDefaultMaxRows'
-  console.log(tableName)
-  console.log(tableField)
-  console.log(lookupVal)
-  console.log(maxRows)
+  // console.log(tableName)
+  // console.log(tableField)
+  // console.log(lookupVal)
+  // console.log(maxRows)
   console.log('40 supabaseClient type:')
   console.log(typeof supabaseClient)
-  const myObj1 = {firstName: "Bill", age: 60, city: "Ocala"}
-  const genericResponse = {
-    statusCode: 202,
-    headers: {'Access-Control-Allow-Origin': '*'},
-    body: JSON.stringify(myObj1)
-  }
+  // const myObj1 = {firstName: "Bill", age: 60, city: "Ocala"}
+  // const genericResponse = {
+  //   statusCode: 202,
+  //   headers: {'Access-Control-Allow-Origin': '*'},
+  //   body: JSON.stringify(myObj1)
+  // }
   console.log('we reached line 36 readSupabase')
   // const { data } = await supabaseClient.from('guitars').select().match({ id: 1 })
   // const { data } = await supabaseClient.from('guitars').select().match({ id: 1 })
   // const { data } = await supabaseClient.from('guitars').select().match({ id: 1 })
   // const { data } = await supabaseClient.from('guitars').select().match({ id: 1 })
-  const { data } = await supabaseClient.from('guitars').select().match({ id: 1 })
+  const { data } = await supabaseClient.from('guitars').select().eq('make', 'Martin')
   console.log(typeof data)
   console.table(data)  // only appears when the field name is 'data'. blaming supabase.
   console.log(data[0].make)  //this works, so data must be an array?

@@ -29,8 +29,8 @@ exports.handler = async (event, context) => {
   console.log('we reached line 27 readSupabase')
   const qsParms = event.queryStringParameters
   console.table(qsParms)
-  const tableNameIn = qsParms.tableNameIn || 'myDefaultTableName'
-  console.log(tableNameIn)
+  const tableName = qsParms.tableName || 'myDefaultTableName'
+  console.log(tableName)
   console.log('11 supabaseClient type:')
   console.log(typeof supabaseClient)
   const myObj1 = {firstName: "Bill", age: 60, city: "Ocala"}

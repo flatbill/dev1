@@ -29,7 +29,7 @@ exports.handler = async (event, context) => {
   console.log('we reached line 27 readSupabase')
   const urlSearchParams = new URLSearchParams()
   const parms = Object.fromEntries(urlSearchParams.entries())
-  console.log(parms)
+  console.table(parms)
 
   console.log('11 supabaseClient type:')
   console.log(typeof supabaseClient)

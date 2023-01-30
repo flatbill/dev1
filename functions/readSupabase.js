@@ -29,9 +29,15 @@ exports.handler = async (event, context) => {
   console.log('we reached line 27 readSupabase')
   const qsParms = event.queryStringParameters
   console.table(qsParms)
-  const tableName = qsParms.tableName || 'myDefaultTableName'
+  const tableName  = qsParms.tableName   || 'myDefaultTableName'
+  const tableField = qsParms.tableField  || 'myDefaultTableField'
+  const lookupVal  = qsParms.lookupVal   || 'myDefaultLookupVal'
+  const maxRows    = qsParms.maxRows     || 'myDefaultMaxRows'
   console.log(tableName)
-  console.log('11 supabaseClient type:')
+  console.log(tableField)
+  console.log(lookupVal)
+  console.log(maxRows)
+  console.log('40 supabaseClient type:')
   console.log(typeof supabaseClient)
   const myObj1 = {firstName: "Bill", age: 60, city: "Ocala"}
   const genericResponse = {

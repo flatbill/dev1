@@ -27,7 +27,7 @@ exports.handler = async (event, context) => {
   console.log(typeof supaUrl )
   console.log(typeof supaAnonKey )
   console.log('we reached line 27 readSupabase')
-  const urlSearchParams = new URLSearchParams(window.location.search)
+  const urlSearchParams = new URLSearchParams()
   const parms = Object.fromEntries(urlSearchParams.entries())
   console.log(parms)
 

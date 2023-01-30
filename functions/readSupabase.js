@@ -20,6 +20,11 @@ import { createClient } from '@supabase/supabase-js'
 const supaUrl = process.env.supaUrl
 const supaAnonKey = process.env.supaAnonKey
 const supabaseClient = createClient(supaUrl,supaAnonKey)
+////
+const urlSearchParams = new URLSearchParams(window.location.search);
+const parms = Object.fromEntries(urlSearchParams.entries());
+console.log(parms)
+////
 exports.handler = async (event, context) => {
   console.log('running Netlify lambda function: readSupabase')
   console.log(typeof supaUrl )
@@ -34,16 +39,20 @@ exports.handler = async (event, context) => {
     body: JSON.stringify(myObj1)
   }
   console.log('we reached line 36 readSupabase')
+  // const { data } = await supabaseClient.from('guitars').select().match({ id: 1 })
+  // const { data } = await supabaseClient.from('guitars').select().match({ id: 1 })
+  // const { data } = await supabaseClient.from('guitars').select().match({ id: 1 })
+  // const { data } = await supabaseClient.from('guitars').select().match({ id: 1 })
   const { data } = await supabaseClient.from('guitars').select().match({ id: 1 })
   console.log(typeof data)
   console.table(data)  // only appears when the field name is 'data'. blaming supabase.
-  console.log(data[0].make)
+  console.log(data[0].make)  //this works, so data must be an array?
   console.log('we reached line 41 readSupabase')
 
-  let supabaseData = new Object
+  // let supabaseData = new Object
   supabaseData = data
   console.table(supabaseData)
-  console.table(Object.keys(supabaseData))
+  // console.table(Object.keys(supabaseData))
   console.log('we reached line 47 readSupabase')
   // console.table(event.data)
   // console.table(event.body)
@@ -54,12 +63,13 @@ exports.handler = async (event, context) => {
   const myResponse = {
     statusCode: 205,
     headers: {'Access-Control-Allow-Origin': '*'},
-    body: JSON.stringify(supabaseData)
-
+    body: supabaseData
   }
   console.log('we reached line 58 readSupabase')
 
   return myResponse  //this duznt work?
+
+  // body: JSON.stringify(supabaseData)
 
   //return genericResponse // duznt do anything?  lambda has automatic return at the end?
   // but only if you are using it with a callback?

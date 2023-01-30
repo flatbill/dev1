@@ -67,7 +67,7 @@ exports.handler = async (event, context) => {
   // const something = event.data  // this is input to this lamda, i think
   // return { statusCode: 208, body: JSON.stringify(something) }
   const myResponse = {
-    statusCode: 202,
+    statusCode: 201,
     headers: {'Access-Control-Allow-Origin': '*'},
     body: supabaseData
   }

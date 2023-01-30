@@ -47,14 +47,12 @@ exports.handler = async (event, context) => {
   // }
   console.log('we reached line 36 readSupabase')
   // const { data } = await supabaseClient.from('guitars').select().match({ id: 1 })
-  // const { data } = await supabaseClient.from('guitars').select().match({ id: 1 })
-  // const { data } = await supabaseClient.from('guitars').select().match({ id: 1 })
-  // const { data } = await supabaseClient.from('guitars').select().match({ id: 1 })
-  const { data } = await supabaseClient.from('guitars').select().eq('make', 'Martin')
+  // const { data } = await supabaseClient.from('guitars').select().eq('make', 'Martin')
+  const { data } = await supabaseClient.from(tableName).select().eq('make', 'Martin')
   console.log(typeof data)
   console.table(data)  // only appears when the field name is 'data'. blaming supabase.
   console.log(data[0].make)  //this works, so data must be an array?
-  console.log('we reached line 41 readSupabase')
+  console.log('we reached line 55 readSupabase')
 
   // let supabaseData = new Object
   supabaseData = data

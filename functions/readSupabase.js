@@ -27,9 +27,8 @@ exports.handler = async (event, context) => {
   console.log(typeof supaUrl )
   console.log(typeof supaAnonKey )
   console.log('we reached line 27 readSupabase')
-  const urlSearchParams = event.queryStringParameters
-  const parms = Object.fromEntries(urlSearchParams.entries())
-  console.table(parms)
+  const pogo = event.queryStringParameters
+  console.table(pogo)
 
   console.log('11 supabaseClient type:')
   console.log(typeof supabaseClient)

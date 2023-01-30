@@ -26,7 +26,7 @@ exports.handler = async (event, context) => {
   console.log('running Netlify lambda function: readSupabase')
   console.log(typeof supaUrl )
   console.log(typeof supaAnonKey )
-  console.log('we reached line 27 readSupabase')
+  console.log('we reached line 29 readSupabase')
   const qsParms = event.queryStringParameters
   console.table(qsParms)
   const tableName  = qsParms.tableName   || 'myDefaultTableName'
@@ -45,8 +45,7 @@ exports.handler = async (event, context) => {
   //   headers: {'Access-Control-Allow-Origin': '*'},
   //   body: JSON.stringify(myObj1)
   // }
-  console.log('we reached line 36 readSupabase')
-    return
+  console.log('we reached line 36 readSupabase')    
   // const { data } = await supabaseClient.from('guitars').select().match({ id: 1 })
   // const { data } = await supabaseClient.from('guitars').select().eq('make', 'Martin')
   const { data } = await supabaseClient
@@ -68,7 +67,7 @@ exports.handler = async (event, context) => {
   // const something = event.data  // this is input to this lamda, i think
   // return { statusCode: 208, body: JSON.stringify(something) }
   const myResponse = {
-    statusCode: 205,
+    statusCode: 202,
     headers: {'Access-Control-Allow-Origin': '*'},
     body: supabaseData
   }

@@ -40,7 +40,10 @@ class AppComponent {
     this.fileContents = "This is the content of my file";
     this.today = new Date();
     this.totemText = 'killeroo';
-    this.supaMsg = 'i would rather be dead than wet my bed.';
+    this.supaMsg = 'i would rather be dead than wet my bed..';
+    this.supaTableName = 'guitars';
+    this.sbGuitars = new Array();
+    this.sbTodos = new Array();
     // title = environment.title
     this.myCurUrl = window.location.href;
   }
@@ -315,10 +318,26 @@ class AppComponent {
   //   }
   launchReadUsers() {
     console.log('running launchReadUsers');
+    this.supaMsg = 'running launchReadUsers';
     src_utils_apiRat__WEBPACK_IMPORTED_MODULE_1__["default"].readUsers2().then(qtDbRtnObj => {
       console.log(' running .then of apiRat.readUsers2');
-      console.log('qtDbRtnObj--->');
+      console.log('qtDbRtnObj----->');
       console.table(qtDbRtnObj);
+      console.log('app.component line 344');
+      console.log(qtDbRtnObj.Response);
+      console.log(qtDbRtnObj.Response);
+      console.log(qtDbRtnObj.Response);
+      console.log(qtDbRtnObj.Response);
+      console.log(qtDbRtnObj.Response);
+      console.log(qtDbRtnObj.Response.Body);
+      console.log('app.component line 351');
+      let x = qtDbRtnObj.Response.Body.read();
+      let y = x.decode();
+      console.log(y);
+      console.log(y);
+      console.log(y);
+      console.log(y);
+      console.log(y);
       console.log(qtDbRtnObj.length);
       console.log(typeof qtDbRtnObj);
       // this.buildListOfUsers(qtDbRtnObj)
@@ -326,6 +345,49 @@ class AppComponent {
       console.log('apiRat.readUsers2 error. ');
     });
   } //end launchReadUsers
+  launchReadSupabaseBroken() {
+    console.log('372 running launchReadSupabase');
+    this.supaMsg = 'running launchReadSupabase';
+    let qtDbRtnObj = src_utils_apiRat__WEBPACK_IMPORTED_MODULE_1__["default"].readSupabase();
+    console.log('375');
+    console.table(qtDbRtnObj);
+    this.buildSupabaseList(qtDbRtnObj);
+  } //end launchReadSupabase
+  launchReadSupabase() {
+    // tableName, tableFieldName, lookupVal, maxRows
+    let tableNameIn = 'guitars';
+    let tableFieldNameIn = 'make';
+    let lookupValIn = 'Washburn';
+    let myUrl = 'https://play.flytechfree.com/.netlify/functions/readSupabase';
+    myUrl += '?tableName=' + tableNameIn;
+    myUrl += '&tableField=' + tableFieldNameIn;
+    myUrl += '&lookupVal=' + lookupValIn;
+    myUrl += '&maxRows=' + 1;
+    alert(myUrl);
+    // fetch('https://play.flytechfree.com/.netlify/functions/readSupabase?table=guitars')
+    fetch(myUrl).then(res => res.json()).then(data1 => {
+      console.table(data1);
+      console.log('yes, there are witches390');
+      // this.buildSupabaseList(data1)  
+    }).catch(() => {
+      console.log('launchReadSupabase Error.');
+    });
+  }
+  buildSupabaseList(dbObj) {
+    console.log('running buildSupabaseList 391 ');
+    console.table(dbObj);
+    console.log(dbObj.length);
+    if (this.supaTableName == 'guitars') {
+      this.sbGuitars = dbObj.slice();
+    }
+    if (this.supaTableName == 'todos') {
+      this.sbTodos = dbObj.slice();
+    }
+    console.table(this.sbGuitars);
+    console.log(this.sbGuitars[0].make);
+    // console.log(this.sbTodos[0].tasks)
+    console.log('done with buildSupabaseList');
+  }
 } // end appcomponent
 AppComponent.ɵfac = function AppComponent_Factory(t) {
   return new (t || AppComponent)();
@@ -333,9 +395,9 @@ AppComponent.ɵfac = function AppComponent_Factory(t) {
 AppComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({
   type: AppComponent,
   selectors: [["app-root"]],
-  decls: 44,
+  decls: 46,
   vars: 6,
-  consts: [[1, "hero", "is-primary"], [1, "subtitle"], [1, "subtitley"], [1, "columns"], [1, "column"], [1, "label"], ["readonly", "", "type", "text", 1, "inputy"], ["id", "tryTruck", 1, "tag", "is-small", "is-info", "m-1", "is-clickable", 3, "click"], ["id", "launchReadUsers", 1, "tag", "is-small", "is-info", "m-1", "is-clickable", 3, "click"], ["id", "tryFunction1", 1, "tag", "is-small", "is-info", "m-1", "is-clickable", 3, "click"], ["cols", "166", "rows", "11"]],
+  consts: [[1, "hero", "is-primary"], [1, "subtitle"], [1, "subtitley"], [1, "columns"], [1, "column"], [1, "label"], ["readonly", "", "type", "text", 1, "inputy"], ["id", "tryTruck", 1, "tag", "is-small", "is-info", "m-1", "is-clickable", 3, "click"], ["id", "launchReadUsers", 1, "tag", "is-small", "is-info", "m-1", "is-clickable", 3, "click"], ["id", "launchReadSupabase", 1, "tag", "is-small", "is-info", "m-1", "is-clickable", 3, "click"], ["id", "tryFunction1", 1, "tag", "is-small", "is-info", "m-1", "is-clickable", 3, "click"], ["cols", "166", "rows", "11"]],
   template: function AppComponent_Template(rf, ctx) {
     if (rf & 1) {
       _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div", 0)(1, "h2", 1);
@@ -392,15 +454,21 @@ AppComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵ
       _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
       _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](38, "span", 9);
       _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("click", function AppComponent_Template_span_click_38_listener() {
+        return ctx.launchReadSupabase();
+      });
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](39, " launchSupabase");
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](40, "span", 10);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("click", function AppComponent_Template_span_click_40_listener() {
         return ctx.tryFunction1();
       });
-      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](39, " try function1");
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](41, " try function1");
       _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](40, "p");
-      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](41, "in dev1, npm install @supabase/supabase-js");
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](42, "p");
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](43, "in dev1, npm install @supabase/supabase-js");
       _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](42, "textarea", 10);
-      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](43);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](44, "textarea", 11);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](45);
       _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     }
     if (rf & 2) {
@@ -414,7 +482,7 @@ AppComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵ
       _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate1"](" ", ctx.myFriend, "  ");
       _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](5);
       _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate1"](" ", ctx.gdArray1, "  ");
-      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](18);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](20);
       _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate1"]("  \n    ", ctx.supaMsg, "\n");
     }
   },
@@ -523,8 +591,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 const qtReadUsers = () => {
   console.log(' running qtreadusers');
-  let myUrl = 'https://qncsurvey.netlify.app/.netlify/functions/qtReadUsers';
+  let myUrl = 'https://play.flytechfree.com/.netlify/functions/qtReadUsers';
   return fetch(myUrl);
+};
+const readSupabase = () => {
+  console.log(' running apRat.readSupabase');
+  fetch('https://play.flytechfree.com/.netlify/functions/readSupabase').then(res => res.json()).then(data1 => {
+    console.table(data1);
+    console.log('yes, there are demons');
+  }).catch(() => {
+    console.log('launchReadSupabase Error.');
+  });
 };
 const function1 = () => {
   let myUrl = 'https://play.flytechfree.com/.netlify/functions/function-1';
@@ -539,6 +616,7 @@ const readUsers2 = () => {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   qtReadUsers: qtReadUsers,
   readUsers2: readUsers2,
+  readSupabase: readSupabase,
   function1: function1
 });
 

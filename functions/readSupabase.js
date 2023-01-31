@@ -27,16 +27,16 @@ exports.handler = async (event, context) => {
   console.log(typeof supaUrl )
   console.log(typeof supaAnonKey )
   console.log('we reached line 29 readSupabase')
-  // const qsParms = event.queryStringParameters
-  // console.table(qsParms)
+  const qsParms = event.queryStringParameters
+  console.table(qsParms)
   const tableName  = qsParms.tableName   || 'guitars'
   const tableField = qsParms.tableField  || 'make'
   const lookupVal  = qsParms.lookupVal   || 'Washburn'
   const maxRows    = qsParms.maxRows     || '1'
-  // console.log(tableName)
-  // console.log(tableField)
-  // console.log(lookupVal)
-  // console.log(maxRows)
+  console.log(tableName)
+  console.log(tableField)
+  console.log(lookupVal)
+  console.log(maxRows)
   console.log('40 supabaseClient type:')
   console.log(typeof supabaseClient)
   const myObj1 = {firstName: "Bill", age: 60, city: "Ocala"}

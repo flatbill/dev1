@@ -81,14 +81,6 @@ exports.handler = async (event, context) => {
   var myObj2 = {  supabaseData }
   console.log('myObj2: ', myObj2)
 
-// Creating a JS object to add array into it
-var obj3 = {             
-  arrayOne: []
-};
-  // Push an array to object
-obj3.arrayOne.push(supabaseData)
-console.log('obj3:', obj3)
-
   const myResponse = {
     statusCode: 202,
     headers: {'Access-Control-Allow-Origin': '*'},
@@ -96,8 +88,8 @@ console.log('obj3:', obj3)
   }
 
   console.log('we reached the end of readSupabase. ready to return.')
-  return genericResponse
-  //return myResponsebody: JSON.stringify(myObj1)  //this duznt work?
+  // return genericResponse
+  return myResponse  //billy can ya make this work?
 
   // body: JSON.stringify(supabaseData)
 

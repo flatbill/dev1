@@ -80,8 +80,11 @@ exports.handler = async (event, context) => {
   }
   console.log('supabaseJsonStringify:')
   console.table(supabaseJsonStringify)
-  console.log('we reached line 79 readSupabase. ready to return.')
 
+
+  var myObj2 = {  supabaseJsonStringify }
+  console.log('myObj2: ', myObj2)
+  console.log('we reached the end of readSupabase. ready to return.')
   return genericResponse
   //return myResponse  //this duznt work?
 

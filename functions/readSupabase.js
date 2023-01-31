@@ -87,6 +87,7 @@ var Obj3 = {
 };
   // Push an array to object
 Obj3.arrayOne.push(supabaseData)
+console.log('obj3:', obj3)
 
   const myResponse = {
     statusCode: 202,

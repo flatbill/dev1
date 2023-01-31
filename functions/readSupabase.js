@@ -58,6 +58,8 @@ exports.handler = async (event, context) => {
   // let supabaseData = new Object
   supabaseData = data
   console.table(supabaseData)
+  supabaseJson = JSON.stringify(supabaseData)
+  // body: JSON.stringify([1, 2, 3, 4, 5])
   // console.table(Object.keys(supabaseData))
   console.log('we reached line 47 readSupabase')
   // console.table(event.data)
@@ -67,9 +69,9 @@ exports.handler = async (event, context) => {
   // const something = event.data  // this is input to this lamda, i think
   // return { statusCode: 208, body: JSON.stringify(something) }
   const myResponse = {
-    statusCode: 201,
+    statusCode: 202,
     headers: {'Access-Control-Allow-Origin': '*'},
-    body: supabaseData
+    body: supabaseJson
   }
   console.log('we reached line 58 readSupabase')
 

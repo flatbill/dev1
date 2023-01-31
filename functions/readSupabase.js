@@ -73,7 +73,8 @@ exports.handler = async (event, context) => {
   }
   console.log('we reached line 58 readSupabase')
 
-  return myResponse  //this duznt work?
+  return genericResponse
+  //return myResponse  //this duznt work?
 
   // body: JSON.stringify(supabaseData)
 

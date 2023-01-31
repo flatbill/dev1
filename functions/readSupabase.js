@@ -73,19 +73,23 @@ exports.handler = async (event, context) => {
 
   // const something = event.data  // this is input to this lamda, i think
   // return { statusCode: 208, body: JSON.stringify(something) }
-  const myResponse = {
-    statusCode: 202,
-    headers: {'Access-Control-Allow-Origin': '*'},
-    body: supabaseJsonStringify
-  }
+
+
   console.log('supabaseJsonStringify:')
   console.table(supabaseJsonStringify)
 
   var myObj2 = {  supabaseJsonStringify }
   console.log('myObj2: ', myObj2)
+  
+  const myResponse = {
+    statusCode: 202,
+    headers: {'Access-Control-Allow-Origin': '*'},
+    body:  JSON.stringify(myObj2)
+  }
+
   console.log('we reached the end of readSupabase. ready to return.')
   return genericResponse
-  //return myResponse  //this duznt work?
+  //return myResponsebody: JSON.stringify(myObj1)  //this duznt work?
 
   // body: JSON.stringify(supabaseData)
 

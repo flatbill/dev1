@@ -81,7 +81,6 @@ exports.handler = async (event, context) => {
   console.log('supabaseJsonStringify:')
   console.table(supabaseJsonStringify)
 
-
   var myObj2 = {  supabaseJsonStringify }
   console.log('myObj2: ', myObj2)
   console.log('we reached the end of readSupabase. ready to return.')

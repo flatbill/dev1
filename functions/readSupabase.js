@@ -82,11 +82,11 @@ exports.handler = async (event, context) => {
   console.log('myObj2: ', myObj2)
 
 // Creating a JS object to add array into it
-var Obj3 = {             
+var obj3 = {             
   arrayOne: []
 };
   // Push an array to object
-Obj3.arrayOne.push(supabaseData)
+obj3.arrayOne.push(supabaseData)
 console.log('obj3:', obj3)
 
   const myResponse = {

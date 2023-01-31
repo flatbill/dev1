@@ -78,9 +78,9 @@ exports.handler = async (event, context) => {
   console.log('supabaseJsonStringify:')
   console.table(supabaseJsonStringify)
 
-  var myObj2 = {  supabaseJsonStringify }
+  var myObj2 = {  supabaseData }
   console.log('myObj2: ', myObj2)
-  
+
   const myResponse = {
     statusCode: 202,
     headers: {'Access-Control-Allow-Origin': '*'},

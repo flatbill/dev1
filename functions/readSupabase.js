@@ -81,6 +81,13 @@ exports.handler = async (event, context) => {
   var myObj2 = {  supabaseData }
   console.log('myObj2: ', myObj2)
 
+// Creating a JS object to add array into it
+var Obj3 = {             
+  arrayOne: []
+};
+  // Push an array to object
+Obj3.arrayOne.push(supabaseData)
+
   const myResponse = {
     statusCode: 202,
     headers: {'Access-Control-Allow-Origin': '*'},

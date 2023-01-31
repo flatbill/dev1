@@ -41,19 +41,20 @@ exports.handler = async (event, context) => {
   console.log(typeof supabaseClient)
   const myObj1 = {firstName: "Bill", age: 60, city: "Ocala"}
   const genericResponse = {
-    statusCode: 202,
+    statusCode: 200,
     headers: {'Access-Control-Allow-Origin': '*'},
     body: JSON.stringify(myObj1)
   }
-  console.log('we reached line 36 readSupabase')    
+  console.log('we reached line 48 readSupabase')    
   // const { data } = await supabaseClient.from('guitars').select().match({ id: 1 })
   // const { data } = await supabaseClient.from('guitars').select().eq('make', 'Martin')
   const { data } = await supabaseClient
   .from(tableName).select().eq(tableField, lookupVal).limit(maxRows)
+  console.log('supabase data has type:')
   console.log(typeof data)
   console.table(data)  // only appears when the field name is 'data'. blaming supabase.
   // console.log(data[0].make)  //this works, so data must be an array?
-  console.log('we reached line 55 readSupabase')
+  console.log('we reached line 57 readSupabase')
 
   // let supabaseData = new Object
   supabaseData = data
@@ -61,7 +62,7 @@ exports.handler = async (event, context) => {
   supabaseJson = JSON.stringify(supabaseData)
   // body: JSON.stringify([1, 2, 3, 4, 5])
   // console.table(Object.keys(supabaseData))
-  console.log('we reached line 47 readSupabase')
+  console.log('we reached line 65 readSupabase')
   // console.table(event.data)
   // console.table(event.body)
   // console.log('we reached line 44 readSupabase')
@@ -73,7 +74,9 @@ exports.handler = async (event, context) => {
     headers: {'Access-Control-Allow-Origin': '*'},
     body: supabaseJson
   }
-  console.log('we reached line 58 readSupabase')
+  console.log('supabaseJson:')
+  console.table(supabaseJson)
+  console.log('we reached line 79 readSupabase. ready to return.')
 
   return genericResponse
   //return myResponse  //this duznt work?

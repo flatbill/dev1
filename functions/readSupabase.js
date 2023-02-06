@@ -23,7 +23,7 @@ const supabaseClient = createClient(supaUrl,supaAnonKey)
 ////
 ////
 exports.handler = async (event, context) => {
-  console.log('running Netlify lambda function: readSupabase')
+  console.log('26 running Netlify lambda function: readSupabase')
   console.log(typeof supaUrl )
   console.log(typeof supaAnonKey )
   console.log('we reached line 29 readSupabase')

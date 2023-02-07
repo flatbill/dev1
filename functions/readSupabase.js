@@ -5,8 +5,6 @@ const supabaseClient = createClient(supaUrl,supaAnonKey)
 //  
 exports.handler = async (event, context) => {
   console.log('26 running Netlify lambda function: readSupabase')
-  // console.log(typeof supaUrl )
-  // console.log(typeof supaAnonKey )
   console.log('we reached line 29 readSupabase')
   const qsParms = event.queryStringParameters
   console.table(qsParms)
@@ -26,9 +24,6 @@ exports.handler = async (event, context) => {
   console.log(fld3)
   console.log(fldVl3)
   console.log(maxRows)
-  // console.log('40 supabaseClient type:')
-  // console.log(typeof supabaseClient)
-
   const { data } = await supabaseClient
   .from(tbl).select()
   .eq(fld1, fldVl1)
@@ -43,9 +38,9 @@ exports.handler = async (event, context) => {
   supabaseData = data
   console.log('supabaseData:')
   console.table(supabaseData)
-  supabaseJsonStringify = JSON.stringify(supabaseData)
-  console.log('80 supabaseJsonStringify:')
-  console.table(supabaseJsonStringify)
+  // supabaseJsonStringify = JSON.stringify(supabaseData)
+  // console.log('80 supabaseJsonStringify:')
+  // console.table(supabaseJsonStringify)
   var myObj2 = {  supabaseData }
 
   const myResponse = {

@@ -76,22 +76,11 @@ exports.handler = async (event, context) => {
   console.log('supabaseData:')
   console.table(supabaseData)
   supabaseJsonStringify = JSON.stringify(supabaseData)
-  // body: JSON.stringify([1, 2, 3, 4, 5])
-  // console.table(Object.keys(supabaseData))
-  console.log('we reached line 68 readSupabase')
-  // console.table(event.data)
-  // console.table(event.body)
-  // console.log('we reached line 44 readSupabase')
-
-  // const something = event.data  // this is input to this lamda, i think
-  // return { statusCode: 208, body: JSON.stringify(something) }
-
-
-  console.log('supabaseJsonStringify:')
+  console.log('80 supabaseJsonStringify:')
   console.table(supabaseJsonStringify)
 
   var myObj2 = {  supabaseData }
-  console.log('myObj2: ', myObj2)
+  // console.log('myObj2: ', myObj2)
 
   const myResponse = {
     statusCode: 202,
@@ -101,12 +90,7 @@ exports.handler = async (event, context) => {
 
   console.log('we reached the end of readSupabase. ready to return.')
   // return genericResponse
-  return myResponse  //billy can ya make this work?
-
-  // body: JSON.stringify(supabaseData)
-
-  //return genericResponse // duznt do anything?  lambda has automatic return at the end?
-  // but only if you are using it with a callback?
+  return myResponse  //billy iz this working?
 
 } // end export.handler =>
   ////////////////////////////////////////
@@ -151,27 +135,4 @@ exports.handler = async (event, context) => {
 //     // } 
 //  // }
   
-///////////////////////////////////////////////////////////////////////////
-  // console.log(Object.getOwnPropertyNames(data[0]))
-  // console.log(Object.keys(data[0]))
-  // fun7()
-  // supaResponse = {
-  //   statusCode: 200,
-  //   headers: {'Access-Control-Allow-Origin': '*'},
-  //   body: JSON.stringify(data)
-  // }
-  // body: JSON.stringify(data)
-
-  // console.log(Date.now())
-  // console.log('we reached the end of Supabase.js')
-  // return genericResponse
-  // return supaResponse
-//}
-
-// function fun7(){
-//   console.log('running fun7')
-//   console.log(Date.now())
-// }
   ////////////////////////////////////////
-
-  

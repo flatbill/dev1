@@ -1,27 +1,8 @@
-// // import { createClient } from '@supabase/supabase-js' 
-// const supaUrl = process.env.supaUrl
-// const supaAnonKey = process.env.supaAnonKey
-// const myObj1 = {firstName: "Bill", age: 60, city: "Ocala"}
-
-// // const supabaseClient = createClient(supaUrl,supaAnonKey)
-
-// exports.handler = (event, context, callback) => { 
-//   console.log('running supabase lambda function')
-//   console.log(supaUrl.length)
-//   console.log(supaAnonKey.length)
-
-//   callback(null, { 
-//     statusCode: 201, 
-//     headers: {'Access-Control-Allow-Origin': '*'},
-//     body: "Hello Worldy" 
-//   })  } 
-////////////////////////////////////////////////////////////////////////////////////////////
 import { createClient } from '@supabase/supabase-js' 
 const supaUrl = process.env.supaUrl
 const supaAnonKey = process.env.supaAnonKey
 const supabaseClient = createClient(supaUrl,supaAnonKey)
-////
-////
+//  
 exports.handler = async (event, context) => {
   console.log('26 running Netlify lambda function: readSupabase')
   console.log(typeof supaUrl )
@@ -47,17 +28,15 @@ exports.handler = async (event, context) => {
   console.log(maxRows)
   console.log('40 supabaseClient type:')
   console.log(typeof supabaseClient)
-  const myObj1 = {firstName: "Bill", age: 60, city: "Ocala"}
-  const genericResponse = {
-    statusCode: 200,
-    headers: {'Access-Control-Allow-Origin': '*'},
-    body: JSON.stringify(myObj1)
-  }
-  console.log('myObj1: ', myObj1)
+  // const myObj1 = {firstName: "Bill", age: 60, city: "Ocala"}
+  // const genericResponse = {
+  //   statusCode: 200,
+  //   headers: {'Access-Control-Allow-Origin': '*'},
+  //   body: JSON.stringify(myObj1)
+  // }
+  // console.log('myObj1: ', myObj1)
   console.log('we reached line 48 readSupabase')    
 
-  // const { data } = await supabaseClient.from('guitars').select().match({ id: 1 })
-  // const { data } = await supabaseClient.from('guitars').select().eq('make', 'Martin')
   const { data } = await supabaseClient
   .from(tbl).select()
   .eq(fld1, fldVl1)
@@ -65,25 +44,22 @@ exports.handler = async (event, context) => {
   .eq(fld3, fldVl3)
   .limit(maxRows)
   console.log('supabase data has type:')
-  console.log(typeof data)
-  console.table(data)  // only appears when the field name is 'data'. blaming supabase.
+  // console.log(typeof data)
+  // console.table(data)  // only appears when the field name is 'data'. blaming supabase.
   console.log('supabase data: ', data)
   // console.log(data[0].make)  //this works, so data must be an array?
   console.log('we reached line 60 readSupabase')
 
-  // let supabaseData = new Object
   supabaseData = data
   console.log('supabaseData:')
   console.table(supabaseData)
   supabaseJsonStringify = JSON.stringify(supabaseData)
   console.log('80 supabaseJsonStringify:')
   console.table(supabaseJsonStringify)
-
   var myObj2 = {  supabaseData }
-  // console.log('myObj2: ', myObj2)
 
   const myResponse = {
-    statusCode: 202,
+    statusCode: 200,
     headers: {'Access-Control-Allow-Origin': '*'},
     body:  JSON.stringify(myObj2)
   }

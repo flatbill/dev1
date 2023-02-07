@@ -29,13 +29,21 @@ exports.handler = async (event, context) => {
   console.log('we reached line 29 readSupabase')
   const qsParms = event.queryStringParameters
   console.table(qsParms)
-  const tableName  = qsParms.tableName   || 'guitars'
-  const tableField = qsParms.tableField  || 'make'
-  const lookupVal  = qsParms.lookupVal   || 'Washburn'
-  const maxRows    = qsParms.maxRows     || '1'
-  console.log(tableName)
-  console.log(tableField)
-  console.log(lookupVal)
+  let tbl  = qsParms.tbl        || 'guitars'
+  let fld1 = qsParms.fld1       || 'make'
+  let fldVl1 = qsParms.fldVl1  || 'Washburn'
+  let fld2 = qsParms.fld2       || 'make'
+  let fldVl2 = qsParms.fldVl2  || 'Washburn'
+  let fld3 = qsParms.fld3      || 'make'
+  let fldVl3 = qsParms.fldVl3  || 'Washburn'
+  let maxRows = qsParms.maxRows || '1'
+  console.log(tbl)
+  console.log(fld1)
+  console.log(fldVl1)
+  console.log(fld2)
+  console.log(fldVl2)
+  console.log(fld3)
+  console.log(fldVl3)
   console.log(maxRows)
   console.log('40 supabaseClient type:')
   console.log(typeof supabaseClient)
@@ -51,7 +59,11 @@ exports.handler = async (event, context) => {
   // const { data } = await supabaseClient.from('guitars').select().match({ id: 1 })
   // const { data } = await supabaseClient.from('guitars').select().eq('make', 'Martin')
   const { data } = await supabaseClient
-  .from(tableName).select().eq(tableField, lookupVal).limit(maxRows)
+  .from(tbl).select()
+  .eq(fld1, fldVl1)
+  .eq(fld2, fldVl2)
+  .eq(fld3, fldVl3)
+  .limit(maxRows)
   console.log('supabase data has type:')
   console.log(typeof data)
   console.table(data)  // only appears when the field name is 'data'. blaming supabase.

@@ -4,10 +4,9 @@ const supaAnonKey = process.env.supaAnonKey
 const supabaseClient = createClient(supaUrl,supaAnonKey)
 //  
 exports.handler = async (event, context) => {
-  console.log('26 running Netlify lambda function: readSupabase')
-  console.log('we reached line 29 readSupabase')
+  console.log('7 running Netlify lambda function: readSupabase')
   const qsParms = event.queryStringParameters
-  console.table(qsParms)
+  // console.table(qsParms)
   let tbl  = qsParms.tbl        || 'guitarsy'
   let fld1 = qsParms.fld1       || 'makey'
   let fldVl1 = qsParms.fldVl1   || 'Washburny'
@@ -30,17 +29,10 @@ exports.handler = async (event, context) => {
   .eq(fld2, fldVl2)
   .eq(fld3, fldVl3)
   .limit(maxRows)
-  // console.log('supabase data has type:')
-  // console.table(data)  // only appears when the field name is 'data'. blaming supabase.
-  // console.log('supabase data: ', data)
-  // console.log(data[0].make)  //this works, so data must be an array?
-  console.log('we reached line 60 readSupabase')
-  supabaseData = data
+  console.log('we reached line 32 readSupabase')
+  supabaseData = data //supabase seems to like the word 'data'
   console.log('supabaseData:')
   console.table(supabaseData)
-  // supabaseJsonStringify = JSON.stringify(supabaseData)
-  // console.log('80 supabaseJsonStringify:')
-  // console.table(supabaseJsonStringify)
   var myObj2 = {  supabaseData }
 
   const myResponse = {

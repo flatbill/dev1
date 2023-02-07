@@ -5,8 +5,8 @@ const supabaseClient = createClient(supaUrl,supaAnonKey)
 //  
 exports.handler = async (event, context) => {
   console.log('26 running Netlify lambda function: readSupabase')
-  console.log(typeof supaUrl )
-  console.log(typeof supaAnonKey )
+  // console.log(typeof supaUrl )
+  // console.log(typeof supaAnonKey )
   console.log('we reached line 29 readSupabase')
   const qsParms = event.queryStringParameters
   console.table(qsParms)
@@ -26,8 +26,8 @@ exports.handler = async (event, context) => {
   console.log(fld3)
   console.log(fldVl3)
   console.log(maxRows)
-  console.log('40 supabaseClient type:')
-  console.log(typeof supabaseClient)
+  // console.log('40 supabaseClient type:')
+  // console.log(typeof supabaseClient)
 
   const { data } = await supabaseClient
   .from(tbl).select()
@@ -35,9 +35,9 @@ exports.handler = async (event, context) => {
   .eq(fld2, fldVl2)
   .eq(fld3, fldVl3)
   .limit(maxRows)
-  console.log('supabase data has type:')
+  // console.log('supabase data has type:')
   // console.table(data)  // only appears when the field name is 'data'. blaming supabase.
-  console.log('supabase data: ', data)
+  // console.log('supabase data: ', data)
   // console.log(data[0].make)  //this works, so data must be an array?
   console.log('we reached line 60 readSupabase')
   supabaseData = data
@@ -53,9 +53,6 @@ exports.handler = async (event, context) => {
     headers: {'Access-Control-Allow-Origin': '*'},
     body:  JSON.stringify(myObj2)
   }
-
   console.log('we reached the end of readSupabase. ready to return.')
-  // return genericResponse
   return myResponse  //billy iz this working?
-
-} // end export.handler =>
+} // end export.handler 

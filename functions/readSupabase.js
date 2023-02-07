@@ -15,14 +15,14 @@ exports.handler = async (event, context) => {
   let fld3 = qsParms.fld3       || 'makey'
   let fldVl3 = qsParms.fldVl3   || 'Washburny'
   let maxRows = qsParms.maxRows || '1'
-  console.log(tbl)
-  console.log(fld1)
-  console.log(fldVl1)
-  console.log(fld2)
-  console.log(fldVl2)
-  console.log(fld3)
-  console.log(fldVl3)
-  console.log(maxRows)
+  console.log(' table: ',tbl)
+  console.log(' fld1: ',fld1)
+  console.log(' fldVl1: ',fldVl1)
+  console.log(' fld2: ',fld2)
+  console.log(' fldVl2: ',fldVl2)
+  console.log(' fld3: ',fld3)
+  console.log(' fldVl3: ',fldVl3)
+  console.log(' maxRows: ',maxRows)
   const { data } = await supabaseClient
   .from(tbl).select()
   .eq(fld1, fldVl1)
@@ -33,13 +33,12 @@ exports.handler = async (event, context) => {
   supabaseData = data //supabase seems to like the word 'data'
   console.log('supabaseData:')
   console.table(supabaseData)
-  var myObj2 = {  supabaseData }
-
+  let myObj2 = {  supabaseData }
   const myResponse = {
     statusCode: 200,
     headers: {'Access-Control-Allow-Origin': '*'},
     body:  JSON.stringify(myObj2)
   }
   console.log('we reached the end of readSupabase. ready to return.')
-  return myResponse  //billy iz this working?
+  return myResponse   
 } // end export.handler 

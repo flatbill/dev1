@@ -29,13 +29,13 @@ exports.handler = async (event, context) => {
   console.log('we reached line 29 readSupabase')
   const qsParms = event.queryStringParameters
   console.table(qsParms)
-  let tbl  = qsParms.tbl        || 'guitars'
-  let fld1 = qsParms.fld1       || 'make'
-  let fldVl1 = qsParms.fldVl1  || 'Washburn'
-  let fld2 = qsParms.fld2       || 'make'
-  let fldVl2 = qsParms.fldVl2  || 'Washburn'
-  let fld3 = qsParms.fld3      || 'make'
-  let fldVl3 = qsParms.fldVl3  || 'Washburn'
+  let tbl  = qsParms.tbl        || 'guitarsy'
+  let fld1 = qsParms.fld1       || 'makey'
+  let fldVl1 = qsParms.fldVl1   || 'Washburny'
+  let fld2 = qsParms.fld2       || 'makey'
+  let fldVl2 = qsParms.fldVl2   || 'Washburny'
+  let fld3 = qsParms.fld3       || 'makey'
+  let fldVl3 = qsParms.fldVl3   || 'Washburny'
   let maxRows = qsParms.maxRows || '1'
   console.log(tbl)
   console.log(fld1)

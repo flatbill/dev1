@@ -28,7 +28,7 @@ exports.handler = async (event, context) => {
   console.log(' fld4: ',fld4)
   console.log(' fldVl4: ',fldVl4)
   console.log(' maxRows: ',maxRows)
-  const { data } = await supabaseClient
+  const { data1 } = await supabaseClient
   .from(tbl).select()
   .eq(fld1, fldVl1)
   .eq(fld2, fldVl2)
@@ -36,7 +36,7 @@ exports.handler = async (event, context) => {
   .eq(fld4, fldVl4)
   .limit(maxRows)
   console.log('we reached line 32 readSupabase')
-  supabaseData = data //supabase seems to like the word 'data'
+  supabaseData = data1 //supabase seems to like the word 'data'
   console.log('supabaseData:')
   console.table(supabaseData)
   let myObj2 = {  supabaseData }

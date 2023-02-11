@@ -14,8 +14,8 @@ exports.handler = async (event, context) => {
   let fldVl2 = qsParms.fldVl2   || 'Washburny'
   let fld3 = qsParms.fld3       || 'makey'
   let fldVl3 = qsParms.fldVl3   || 'Washburny'
-  let fld4 = qsParms.fld3       || 'makey'
-  let fldVl4 = qsParms.fldVl3   || 'Washburny'
+  let fld4 = qsParms.fld4       || 'makey'
+  let fldVl4 = qsParms.fldVl4   || 'Washburny'
 
   let maxRows = qsParms.maxRows || '1'
   console.log(' table: ',tbl)

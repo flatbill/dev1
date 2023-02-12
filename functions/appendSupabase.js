@@ -18,6 +18,7 @@ exports.handler = async (event, context) => {
 .from('qtAnswers')    //(tbl)
 .insert([
   {'cust': '2', 'qid': '11'}
+.select()
 ])
 
 if (error){console.log('error from appendSupabase.',error)}

@@ -6,19 +6,19 @@ const supabaseClient = createClient(supaUrl,supaAnonKey)
 exports.handler = async (event, context) => {
   console.log('7 running Netlify lambda function: appendSupabase')
   const qsParms = event.queryStringParameters
-  // console.table(qsParms)
+  console.table(qsParms)
   let tbl  = qsParms.tbl            || 'guitarsy'
   let tblObj = qsParms.tblObj       || 'makey'
 
   let maxRows = qsParms.maxRows || '1'
   console.log(' tbl: ',tbl)
   console.log(' tblObj: ',tblObj)
+  console.table(tblObj)
   
   const { data , error } = await supabaseClient
-.from(tbl) //('qtAnswers')    //(tbl)
+.from(tbl) //('qtAnswers')    //(tbl)  //tblObj
 .insert([
-  tblObj
-  //{'cust': '2', 'qid': '11'}
+  {'cust': '2', 'qid': '11'}
 ])
 .select()
 

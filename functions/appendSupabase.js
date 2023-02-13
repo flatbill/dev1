@@ -15,28 +15,19 @@ exports.handler = async (event, context) => {
   console.log(' fields: ',fields)
   console.table(fields)
   let myFieldsObj = JSON.parse(fields)
+  console.log('18 myfieldsObj:')
   console.table(myFieldsObj)
 
-  console.log('20 ready to run supabaseClient')
+  console.log('21 ready to run supabaseClient')
   const { data , error } = await supabaseClient
 .from(tbl) //('qtAnswers')    //(tbl)  //tblObj {'cust': '62', 'qid': '116'}
-.insert([ myFieldsObj
-])
+.insert( myFieldsObj )
 .select()
-//  {'cust': '2', 'qid': '11'}
 
 if (error){console.log('error from appendSupabase.',error)}
 if (data){console.log('got data from appendSupabase.',data)}
 
-
-  // const { data } = await supabaseClient
-  // .from(tbl).select()
-  // .eq(fld1, fldVl1)
-  // .eq(fld2, fldVl2)
-  // .eq(fld3, fldVl3)
-  // .eq(fld4, fldVl4)
-  // .limit(maxRows)
-  console.log('we reached line 39 appendSupabase')
+  console.log('we reached line 30 appendSupabase')
   supabaseData = data //supabase seems to like the word 'data'
   console.log('supabaseData:')
   console.table(supabaseData)

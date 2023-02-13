@@ -8,16 +8,18 @@ exports.handler = async (event, context) => {
   const qsParms = event.queryStringParameters
   console.table(qsParms)
   let tbl  = qsParms.tbl            || 'guitarsy'
-  let tblObj = qsParms.tblObj       || 'makey'
+  let fields = qsParms.fields       || 'makey'
 
   let maxRows = qsParms.maxRows || '1'
   console.log(' tbl: ',tbl)
-  console.log(' tblObj: ',tblObj)
-  console.table(tblObj)
+  console.log(' fields: ',fields)
+  console.table(fields)
+  let myFieldsObj = JSON.parse(fields)
+  console.table(myFieldsObj)
   
   const { data , error } = await supabaseClient
 .from(tbl) //('qtAnswers')    //(tbl)  //tblObj
-.insert([  tblObj
+.insert([  {'cust': '62', 'qid': '116'}
 ])
 .select()
 //  {'cust': '2', 'qid': '11'}

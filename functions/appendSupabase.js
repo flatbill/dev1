@@ -22,7 +22,7 @@ exports.handler = async (event, context) => {
   const { data , error } = await supabaseClient
 .from(tbl) //('qtAnswers')    //(tbl)  //tblObj {'cust': '62', 'qid': '116'}
 //.insert( myFieldsObj )
-.insert([{'cust': '622', 'qid': '1162'}])
+.insert([{myFieldsObj}])
 .select()
 
 if (error){console.log('error from appendSupabase.',error)}

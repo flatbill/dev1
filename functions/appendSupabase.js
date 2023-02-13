@@ -20,7 +20,7 @@ exports.handler = async (event, context) => {
   console.log('20 ready to run supabaseClient')
   const { data , error } = await supabaseClient
 .from(tbl) //('qtAnswers')    //(tbl)  //tblObj {'cust': '62', 'qid': '116'}
-.insert([  {myFieldsObj}
+.insert([ fields
 ])
 .select()
 //  {'cust': '2', 'qid': '11'}

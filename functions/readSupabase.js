@@ -17,6 +17,14 @@ exports.handler = async (event, context) => {
   let fld4 = qsParms.fld4        || fld1
   let fld4v = qsParms.fld4v      || fld1v
   let maxRows = qsParms.maxRows   || '1'
+  if (fld3 == 'noKey3'){
+    fld3=fld1
+    fld3v=fld1v
+  }
+  if (fld4 == 'noKey4'){
+    fld4=fld1
+    fld4=fld1v
+  }
   console.log(' tbl: ',tbl)
   console.log(' fld1: ',fld1)
   console.log(' fld1v: ',fld1v)

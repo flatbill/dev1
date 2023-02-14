@@ -16,17 +16,16 @@ exports.handler = async (event, context) => {
   let fldVl3 = qsParms.fld3v   || 'Washburny'
   let fld4 = qsParms.fld4       || 'makey'
   let fldVl4 = qsParms.fld4v   || 'Washburny'
-
   let maxRows = qsParms.maxRows || '1'
   console.log(' table: ',tbl)
   console.log(' fld1: ',fld1)
-  console.log(' fldVl1: ',fldVl1)
+  console.log(' fld1v: ',fld1v)
   console.log(' fld2: ',fld2)
-  console.log(' fldVl2: ',fldVl2)
+  console.log(' fld2v: ',fld2v)
   console.log(' fld3: ',fld3)
-  console.log(' fldVl3: ',fldVl3)
+  console.log(' fld3v: ',fld3v)
   console.log(' fld4: ',fld4)
-  console.log(' fldVl4: ',fldVl4)
+  console.log(' fld4v: ',fld4v)
   console.log(' maxRows: ',maxRows)
   const { data } = await supabaseClient
   .from(tbl).select()

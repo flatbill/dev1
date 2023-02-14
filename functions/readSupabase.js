@@ -9,13 +9,13 @@ exports.handler = async (event, context) => {
   // console.table(qsParms)
   let tbl  = qsParms.tbl        || 'guitarsy'
   let fld1 = qsParms.fld1       || 'makey'
-  let fldVl1 = qsParms.fldVl1   || 'Washburny'
+  let fldVl1 = qsParms.fld1v   || 'Washburny'
   let fld2 = qsParms.fld2       || 'makey'
-  let fldVl2 = qsParms.fldVl2   || 'Washburny'
+  let fldVl2 = qsParms.fld2v   || 'Washburny'
   let fld3 = qsParms.fld3       || 'makey'
-  let fldVl3 = qsParms.fldVl3   || 'Washburny'
+  let fldVl3 = qsParms.fld3v   || 'Washburny'
   let fld4 = qsParms.fld4       || 'makey'
-  let fldVl4 = qsParms.fldVl4   || 'Washburny'
+  let fldVl4 = qsParms.fld4v   || 'Washburny'
 
   let maxRows = qsParms.maxRows || '1'
   console.log(' table: ',tbl)

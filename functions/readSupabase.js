@@ -23,7 +23,7 @@ exports.handler = async (event, context) => {
   }
   if (fld4 == 'noKey4'){
     fld4=fld1
-    fld4=fld1v
+    fld4v=fld1v
   }
   console.log(' tbl: ',tbl)
   console.log(' fld1: ',fld1)

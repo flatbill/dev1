@@ -9,15 +9,15 @@ exports.handler = async (event, context) => {
   // console.table(qsParms)
   let tbl  = qsParms.tbl        || 'guitarsy'
   let fld1 = qsParms.fld1       || 'makey'
-  let fldVl1 = qsParms.fld1v   || 'Washburny'
+  let fld1v = qsParms.fld1v   || 'Washburny'
   let fld2 = qsParms.fld2       || 'makey'
-  let fldVl2 = qsParms.fld2v   || 'Washburny'
+  let fld2v = qsParms.fld2v   || 'Washburny'
   let fld3 = qsParms.fld3       || 'makey'
-  let fldVl3 = qsParms.fld3v   || 'Washburny'
+  let fld3v = qsParms.fld3v   || 'Washburny'
   let fld4 = qsParms.fld4       || 'makey'
-  let fldVl4 = qsParms.fld4v   || 'Washburny'
+  let fld4v = qsParms.fld4v   || 'Washburny'
   let maxRows = qsParms.maxRows || '1'
-  console.log(' table: ',tbl)
+  console.log(' tbl: ',tbl)
   console.log(' fld1: ',fld1)
   console.log(' fld1v: ',fld1v)
   console.log(' fld2: ',fld2)
@@ -29,10 +29,10 @@ exports.handler = async (event, context) => {
   console.log(' maxRows: ',maxRows)
   const { data } = await supabaseClient
   .from(tbl).select()
-  .eq(fld1, fldVl1)
-  .eq(fld2, fldVl2)
-  .eq(fld3, fldVl3)
-  .eq(fld4, fldVl4)
+  .eq(fld1, fld1v)
+  .eq(fld2, fld2v)
+  .eq(fld3, fld3v)
+  .eq(fld4, fld4v)
   .limit(maxRows)
   console.log('we reached line 32 readSupabase')
   supabaseData = data //supabase seems to like the word 'data'

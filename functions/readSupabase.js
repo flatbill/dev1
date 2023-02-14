@@ -17,6 +17,15 @@ exports.handler = async (event, context) => {
   let fld4 = qsParms.fld4        || fld1
   let fld4v = qsParms.fld4v      || fld1v
   let maxRows = qsParms.maxRows   || '1'
+  //hack. can have up to to 4 supabase keys, but not all tables
+  // have 4.  so, re-use field1 as field2,3,4.
+  // relies on passing-in 'noKey_' to this function.
+  // might be better to test for no field passed in?
+  // if the .eq statement can be made variable, well, that would be great.
+  if (fld2 == 'noKey2'){
+    fld2=fld1
+    fld2v=fld1v
+  }
   if (fld3 == 'noKey3'){
     fld3=fld1
     fld3v=fld1v

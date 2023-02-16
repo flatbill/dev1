@@ -1,3 +1,4 @@
+import { ConsoleLogger } from '@angular/compiler-cli'
 import { createClient } from '@supabase/supabase-js' 
 const supaUrl = process.env.supaUrl
 const supaAnonKey = process.env.supaAnonKey
@@ -9,11 +10,12 @@ exports.handler = async (event, context) => {
   console.table(qsParms)
   let tbl  = qsParms.tbl        || 'guitarsy'
   let flds = qsParms.flds       || 'makey'
+  console.log(qsParms.length)
+  console.log('14 appendSupabase')
   // console.log('answerPoints:')
   // console.log('qsParms.answerPoints')
   let foo = 'foo-----'
   for (let i=0;  i < qsParms.length; i++){
-    console.log(qsParms.length)
     foo += foo + qsParms[i]
     console.log('18 we are inside da loop ')
   }

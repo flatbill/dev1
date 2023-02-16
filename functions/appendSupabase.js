@@ -10,6 +10,9 @@ exports.handler = async (event, context) => {
   let tbl  = qsParms.tbl        || 'guitarsy'
   let flds = qsParms.flds       || 'makey'
   console.log(qsParms.length)
+  let myArray = []
+  myArray = qsParms 
+  console.table(myArray)
   console.log('14 appendSupabase')
   // console.log('answerPoints:')
   // console.log('qsParms.answerPoints')

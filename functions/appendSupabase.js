@@ -41,16 +41,20 @@ exports.handler = async (event, context) => {
   pissTxt = '{'
   let parmCnt = 0
   dq = '"'
-  commaOrBracket = ','
+  commaOrNull = ','
   for (const [key, value] of Object.entries(qsParms)) {
     // console.log(`${key} : ${value}`)
     // pissArray.push( `${key} : ${value}`)
     parmCnt = parmCnt + 1
-    if(parmCnt==Object.entries(qsParms).length){
-      commaOrBracket='}'
+    if(parmCnt==Object.entries(qsParms).length){ // last entry
+      commaOrNull=''
     }
-    pissTxt += dq + key + dq + ':' + dq + value + dq + commaOrBracket
+    if (key!='tbl'){
+    pissTxt += dq + key + dq + ':' + dq + value + dq + commaOrNull
+    }
  }
+ pissTxt += '}'
+
   console.log( Object.entries(qsParms).length)
   // console.table(pissArray)
   console.log(pissTxt)

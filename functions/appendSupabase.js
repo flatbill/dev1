@@ -1,10 +1,15 @@
 import { createClient } from '@supabase/supabase-js' 
-import { objectify } from 'tslint/lib/utils'
 const supaUrl = process.env.supaUrl
 const supaAnonKey = process.env.supaAnonKey
 const supabaseClient = createClient(supaUrl,supaAnonKey)
 //  
 exports.handler = async (event, context) => {
+  console.log('7 running Netlify lambda function: appendSupabase')
+  console.log('7 running Netlify lambda function: appendSupabase')
+  console.log('7 running Netlify lambda function: appendSupabase')
+  console.log('7 running Netlify lambda function: appendSupabase')
+  console.log('7 running Netlify lambda function: appendSupabase')
+  console.log('7 running Netlify lambda function: appendSupabase')
   console.log('7 running Netlify lambda function: appendSupabase')
   console.log('7 running Netlify lambda function: appendSupabase')
   console.log('7 running Netlify lambda function: appendSupabase')

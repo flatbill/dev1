@@ -10,15 +10,17 @@ exports.handler = async (event, context) => {
   let tbl  = qsParms.tbl        || 'guitarsy'
   let flds = qsParms.flds       || 'makey'
   console.log(qsParms.length)
-  let myArray = []
-  myArray = qsParms 
-  console.table(myArray)
+  let myKeyTbl = Object.keys(qsParms).map(x => x +"|")
+  let v = Object.values(qsParms).map(x => x + '^^' )
+  console.table(k)
+  console.table(v)
+
   console.log('14 appendSupabase')
   // console.log('answerPoints:')
   // console.log('qsParms.answerPoints')
   let foo = 'foo-----'
-  for (let i=0;  i < qsParms.length; i++){
-    foo += foo + qsParms[i]
+  for (let i=0;  i < myKeyTbl.lenth; i++){
+    foo += foo + myKeyTbl[i]
     console.log('18 we are inside da loop ')
   }
   console.log('19 appendSupabase')

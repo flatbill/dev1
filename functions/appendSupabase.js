@@ -37,24 +37,25 @@ exports.handler = async (event, context) => {
     // }
   // }
   // dingoArray = Object.keys(qsParms) 
-  pissArray = []
+  // pissArray = []
   pissTxt = '{'
-  let ii = 0
+  let parmCnt = 0
+  dq = '"'
   commaOrBracket = ','
   for (const [key, value] of Object.entries(qsParms)) {
-    console.log(`${key} : ${value}`)
-    pissArray.push( `${key} : ${value}`)
-    if(ii==Object.entries(qsParms).length){
+    // console.log(`${key} : ${value}`)
+    // pissArray.push( `${key} : ${value}`)
+    parmCnt = parmCnt + 1
+    if(parmCnt==Object.entries(qsParms).length){
       commaOrBracket='}'
     }
-    pissTxt += '"' + key + '"' + " : " + value + '"' + commaOrBracket
-    // [ii] = key +':'+ value + ','
-    ii = ii + 1
+    pissTxt += dq + key + dq + ':' + dq + value + dq + commaOrBracket
+    parmCnt = ParmCnt + 1
  }
   console.log( Object.entries(qsParms).length)
-  console.table(pissArray)
+  // console.table(pissArray)
   console.log(pissTxt)
-  console.log('49')
+  console.log('58')
   // const pissObj = Object.fromEntries(pissArray);
   // console.log('45 45 45 45 45 45 ')
   // console.table(pissObj)
@@ -68,9 +69,9 @@ exports.handler = async (event, context) => {
   // console.log(entries)
   //duz this combine fields and Valuess into an object
   // that looks like {"cust": '62',"qid" : '16} ?
-  console.log('58 appendSupabase')
+  console.log('72 appendSupabase')
 
-  console.log('30 ready to run supabaseClient')
+  console.log('74 ready to run supabaseClient')
   const { data , error } = await supabaseClient
   .from(tbl) //("qtAnswers")    //(tbl)  //tblObj {'cust': '62', 'qid': '116'}
   //.insert( fldsObj )

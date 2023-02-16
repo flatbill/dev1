@@ -5,22 +5,19 @@ const supabaseClient = createClient(supaUrl,supaAnonKey)
 //  
 exports.handler = async (event, context) => {
   console.log('7 running Netlify lambda function: appendSupabase')
-  console.log('7 running Netlify lambda function: appendSupabase')
-  console.log('7 running Netlify lambda function: appendSupabase')
-  console.log('7 running Netlify lambda function: appendSupabase')
-  console.log('7 running Netlify lambda function: appendSupabase')
   const qsParms = event.queryStringParameters
   let tbl  = qsParms.tbl         || 'defaultTable'
 
   console.table(qsParms)
+  console.table(tbl)
   // console.log(Object.values(qsParms))
   console.log('we reached lined 15 appendSupabase')
-  // let myKeyTbl = Object.keys(qsParms).map(x => x +"|")
+  let myFldNamesArray = Object.keys(qsParms).map(x => x )
   // let v = Object.values(qsParms).map(x => x + '^^' )
-  // console.table(myKeyTbl)
+   console.table(myFldNamesArray)
   // console.table(v)
 
-  console.log('14 appendSupabase')
+  console.log('20 appendSupabase')
   // for (let i=0;  i < myKeyTbl.length; i++){
   //   foo += foo + myKeyTbl[i]
   //   console.log('18 we are inside da loop ')

@@ -30,38 +30,21 @@ exports.handler = async (event, context) => {
     //  // dingo += ' ' + myFldNamesArray[i]+ ':' + myFldValsArray[i] + ','
     // }
   // }
-  // dingoArray = Object.keys(qsParms).map(x =>  )sArray.map
-  // pissArray = []
-  // let ii = 0
-  // for (const [key, value] of Object.entries(qsParms)) {
-  //   console.log(`${key} : ${value}`)
-  //   pissArray.push( `${key} : ${value}`)
-  //   // [ii] = key +':'+ value + ','
-  //   ii = ii + 1
-  // }
-  // console.log(pissArray)
-  let  entries = Object.entries(qsParms)
-  console.log(entries)
-  // let pearArray = 
-  // [
-  //   ["key1","value1"], 
-  //   ["key2", "value2"], 
-  //   ["key3", "value3"]
-  // ]
-  // .reduce((acc, [key, value])=>({...acc, [key]: value}), {});
-  // ['a','b','c'].reduce((m,e,i) => Object.assign(m, {[i]: e}), {});
-  let entriesR = entries.reduce((m,e,i) => Object.assign(m, {[i]: e}), {});
-  console.log('54')
-  console.log(entriesR)
+  // dingoArray = Object.keys(qsParms) 
+  pissArray = []
+  let ii = 0
+  for (const [key, value] of Object.entries(qsParms)) {
+    console.log(`${key} : ${value}`)
+    pissArray.push( `${key} : ${value}`)
+    // [ii] = key +':'+ value + ','
+    ii = ii + 1
+  }
+  console.table(pissArray)
+  // let  entries = Object.entries(qsParms)
+  // console.log(entries)
   //duz this combine fields and Valuess into an object
   // that looks like {"cust": '62',"qid" : '16} ?
   console.log('58 appendSupabase')
-  // console.table(dingo)
- // dingoObj = Object.assign({}, ['a','b','c']); // {0:"a", 1:"b", 2:"c"}
-  // dingoObj = Object.assign({}, ['a','b','c']); // {0:"a", 1:"b", 2:"c"}
-  // dingoObj = Object.assign({}, ['a','b','c']); // {0:"a", 1:"b", 2:"c"}
-  // console.log('36 appendSupabase')
-  // let fldsObj = {}
 
   console.log('30 ready to run supabaseClient')
   const { data , error } = await supabaseClient

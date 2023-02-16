@@ -10,6 +10,8 @@ exports.handler = async (event, context) => {
   console.log('7 running Netlify lambda function: appendSupabase')
   console.log('7 running Netlify lambda function: appendSupabase')
   const qsParms = event.queryStringParameters
+  let tbl  = qsParms.tbl         || 'defaultTable'
+
   console.table(qsParms)
   // console.log(Object.values(qsParms))
   console.log('we reached lined 15 appendSupabase')

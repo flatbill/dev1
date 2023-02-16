@@ -18,10 +18,9 @@ exports.handler = async (event, context) => {
   console.table(myFldValsArray)
 
   console.log('20 appendSupabase')
-  // for (let i=0;  i < myKeyTbl.length; i++){
-  //   foo += foo + myKeyTbl[i]
-  //   console.log('18 we are inside da loop ')
-  // }
+  for (let i=0;  i < myFldNamesArray.length; i++){
+    console.log(myFldNamesArray[i])
+  }
   console.log('19 appendSupabase')
   console.log('17 appendSupabase.js ')
   let fldsObj = {}

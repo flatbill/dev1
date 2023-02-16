@@ -14,7 +14,9 @@ exports.handler = async (event, context) => {
   console.table(qsParms)
   let tbl  = qsParms.tbl        || 'guitarsy'
   let flds = qsParms.flds       || 'makey'
-  console.log(qsParms.length)
+  // console.log(qsParms.length)
+  console.log(Object.values(qsParms))
+  console.log('we reached lined 19 appendSupabase')
   let myKeyTbl = Object.keys(qsParms).map(x => x +"|")
   let v = Object.values(qsParms).map(x => x + '^^' )
   console.table(myKeyTbl)

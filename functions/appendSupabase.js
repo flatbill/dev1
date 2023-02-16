@@ -50,7 +50,6 @@ exports.handler = async (event, context) => {
       commaOrBracket='}'
     }
     pissTxt += dq + key + dq + ':' + dq + value + dq + commaOrBracket
-    parmCnt = ParmCnt + 1
  }
   console.log( Object.entries(qsParms).length)
   // console.table(pissArray)

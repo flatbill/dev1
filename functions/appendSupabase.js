@@ -12,14 +12,14 @@ exports.handler = async (event, context) => {
   console.log(qsParms.length)
   let myKeyTbl = Object.keys(qsParms).map(x => x +"|")
   let v = Object.values(qsParms).map(x => x + '^^' )
-  console.table(k)
+  console.table(myKeyTbl)
   console.table(v)
 
   console.log('14 appendSupabase')
   // console.log('answerPoints:')
   // console.log('qsParms.answerPoints')
   let foo = 'foo-----'
-  for (let i=0;  i < myKeyTbl.lenth; i++){
+  for (let i=0;  i < myKeyTbl.length; i++){
     foo += foo + myKeyTbl[i]
     console.log('18 we are inside da loop ')
   }

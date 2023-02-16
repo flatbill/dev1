@@ -50,9 +50,9 @@ exports.handler = async (event, context) => {
   // ]
   // .reduce((acc, [key, value])=>({...acc, [key]: value}), {});
   // ['a','b','c'].reduce((m,e,i) => Object.assign(m, {[i]: e}), {});
-  entries.reduce((m,e,i) => Object.assign(m, {[i]: e}), {});
+  let entriesR = entries.reduce((m,e,i) => Object.assign(m, {[i]: e}), {});
   console.log('54')
-  console.log(entries)
+  console.log(entriesR)
   //duz this combine fields and Valuess into an object
   // that looks like {"cust": '62',"qid" : '16} ?
   console.log('58 appendSupabase')

@@ -27,22 +27,27 @@ exports.handler = async (event, context) => {
     // console.log(myFldNamesArray[i])
     // console.log(myFldValsArray[i])
     if (myFldNamesArray[i] !='tbl') { //hack. supabase table nm is in qs.
-      dingo += ' ' + myFldNamesArray[i]+ ':' + myFldValsArray[i] + ','
+     // dingo += ' ' + myFldNamesArray[i]+ ':' + myFldValsArray[i] + ','
     }
   }
   // dingoArray = Object.keys(qsParms).map(x =>  )sArray.map
   // sArray.
-  for (const [key, value] of Object.entries(qsParms)) {
-    console.log(`${key} : ${value}`)
-  }
-  //billyy, you must combine fields and Valuess into an object
-  // that looks like {"cust": '62',"qid" : '16}
+  // let ii = 0
+  // for (const [key, value] of Object.entries(qsParms)) {
+  //   console.log(`${key} : ${value}`)
+  //   [ii] = key +':'+ value + ','
+  //   ii = ii + 1
+  // }
+  let  entries = Object.entries(qsParms)
+  console.log(entries)
+  //duz this combine fields and Valuess into an object
+  // that looks like {"cust": '62',"qid" : '16} ?
   console.log('33 appendSupabase')
-  console.table(dingo)
+  // console.table(dingo)
  // dingoObj = Object.assign({}, ['a','b','c']); // {0:"a", 1:"b", 2:"c"}
-  dingoObj = Object.assign({}, ['a','b','c']); // {0:"a", 1:"b", 2:"c"}
-  dingoObj = Object.assign({}, ['a','b','c']); // {0:"a", 1:"b", 2:"c"}
-  console.log('36 appendSupabase')
+  // dingoObj = Object.assign({}, ['a','b','c']); // {0:"a", 1:"b", 2:"c"}
+  // dingoObj = Object.assign({}, ['a','b','c']); // {0:"a", 1:"b", 2:"c"}
+  // console.log('36 appendSupabase')
   // let fldsObj = {}
 
   console.log('30 ready to run supabaseClient')

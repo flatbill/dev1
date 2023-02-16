@@ -78,10 +78,10 @@ exports.handler = async (event, context) => {
   console.log('74 ready to run supabaseClient')
   const { data , error } = await supabaseClient
   .from(tbl) //("qtAnswers")    //(tbl)  //tblObj {'cust': '62', 'qid': '116'}
-  //.insert( fldsObj )
+  .insert( fldsObj )
 //.insert([{myFieldsObj}])
 //.insert({myFieldsObj})
- .insert({'cust': '6243', 'qid': '116'})  //works
+ //.insert({'cust': '6243', 'qid': '116'})  //works
  .select()
 
 if (error){console.log('error from appendSupabase.',error)}

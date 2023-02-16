@@ -9,33 +9,21 @@ exports.handler = async (event, context) => {
   console.log('7 running Netlify lambda function: appendSupabase')
   console.log('7 running Netlify lambda function: appendSupabase')
   console.log('7 running Netlify lambda function: appendSupabase')
-  console.log('7 running Netlify lambda function: appendSupabase')
   const qsParms = event.queryStringParameters
   console.table(qsParms)
-  let tbl  = qsParms.tbl        || 'guitarsy'
-  let flds = qsParms.flds       || 'makey'
-  // console.log(qsParms.length)
-  console.log(Object.values(qsParms))
-  console.log('we reached lined 19 appendSupabase')
-  let myKeyTbl = Object.keys(qsParms).map(x => x +"|")
-  let v = Object.values(qsParms).map(x => x + '^^' )
-  console.table(myKeyTbl)
-  console.table(v)
+  // console.log(Object.values(qsParms))
+  console.log('we reached lined 15 appendSupabase')
+  // let myKeyTbl = Object.keys(qsParms).map(x => x +"|")
+  // let v = Object.values(qsParms).map(x => x + '^^' )
+  // console.table(myKeyTbl)
+  // console.table(v)
 
   console.log('14 appendSupabase')
-  // console.log('answerPoints:')
-  // console.log('qsParms.answerPoints')
-  let foo = ''
-  for (let i=0;  i < myKeyTbl.length; i++){
-    foo += foo + myKeyTbl[i]
-    console.log('18 we are inside da loop ')
-  }
+  // for (let i=0;  i < myKeyTbl.length; i++){
+  //   foo += foo + myKeyTbl[i]
+  //   console.log('18 we are inside da loop ')
+  // }
   console.log('19 appendSupabase')
-  console.log(foo)
-  let maxRows = qsParms.maxRows || '1'
-  console.log(' tbl: ',tbl)
-  console.log(' flds: ',flds)
-  console.table(flds)
   console.log('17 appendSupabase.js ')
   let fldsObj = {}
   // let myFieldsObj = JSON.parse(flds)

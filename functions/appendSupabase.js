@@ -5,6 +5,11 @@ const supabaseClient = createClient(supaUrl,supaAnonKey)
 //  
 exports.handler = async (event, context) => {
   console.log('7 running Netlify lambda function: appendSupabase')
+  console.log('7 running Netlify lambda function: appendSupabase')
+  console.log('7 running Netlify lambda function: appendSupabase')
+  console.log('7 running Netlify lambda function: appendSupabase')
+  console.log('7 running Netlify lambda function: appendSupabase')
+  console.log('7 running Netlify lambda function: appendSupabase')
   const qsParms = event.queryStringParameters
   let tbl  = qsParms.tbl         || 'defaultTable'
 
@@ -16,16 +21,20 @@ exports.handler = async (event, context) => {
   let myFldValsArray = Object.values(qsParms).map(x => x)
   console.table(myFldNamesArray)
   console.table(myFldValsArray)
-  let dingo = {}
+  let dingo = ''
   console.log('20 appendSupabase')
   for (let i=0;  i < myFldNamesArray.length; i++){
-    console.log(myFldNamesArray[i])
-    console.log(myFldValsArray[i])
-    dingo += ' ' + myFldNamesArray[i]+ ':' + myFldValsArray[i]
+    // console.log(myFldNamesArray[i])
+    // console.log(myFldValsArray[i])
+    if (myFldNamesArray[i] !='tbl') { //hack. supabase table nm is in qs.
+      dingo += ' ' + myFldNamesArray[i]+ ':' + myFldValsArray[i]
+    }
   }
+  console.log('33 appendSupabase')
+
   console.table(dingo)
-  console.log('25 appendSupabase')
-  let fldsObj = {}
+  console.log('36 appendSupabase')
+  // let fldsObj = {}
 
   console.log('30 ready to run supabaseClient')
   const { data , error } = await supabaseClient
@@ -33,7 +42,7 @@ exports.handler = async (event, context) => {
   //.insert( fldsObj )
 //.insert([{myFieldsObj}])
 //.insert({myFieldsObj})
- .insert({'cust': '6240', 'qid': '116'})  //works
+ .insert({'cust': '6243', 'qid': '116'})  //works
  .select()
 
 if (error){console.log('error from appendSupabase.',error)}

@@ -1,4 +1,3 @@
-import { ConsoleLogger } from '@angular/compiler-cli'
 import { createClient } from '@supabase/supabase-js' 
 const supaUrl = process.env.supaUrl
 const supaAnonKey = process.env.supaAnonKey

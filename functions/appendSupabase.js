@@ -73,7 +73,8 @@ exports.handler = async (event, context) => {
   //duz this combine fields and Valuess into an object
   // that looks like {"cust": '62',"qid" : '16} ?
   console.log('72 appendSupabase')
-
+  let fldsObj= JSON.parse(pissArray)
+  console.log(fldsObj)
   console.log('74 ready to run supabaseClient')
   const { data , error } = await supabaseClient
   .from(tbl) //("qtAnswers")    //(tbl)  //tblObj {'cust': '62', 'qid': '116'}

@@ -38,14 +38,17 @@ exports.handler = async (event, context) => {
   // }
   // dingoArray = Object.keys(qsParms) 
   pissArray = []
+  pissTxt = ''
   let ii = 0
   for (const [key, value] of Object.entries(qsParms)) {
     console.log(`${key} : ${value}`)
     pissArray.push( `${key} : ${value}`)
+    pissTxt += key + ":" + value + ','
     // [ii] = key +':'+ value + ','
     ii = ii + 1
   }
   console.table(pissArray)
+  console.log(pissTxt)
   console.log('49')
   // const pissObj = Object.fromEntries(pissArray);
   // console.log('45 45 45 45 45 45 ')

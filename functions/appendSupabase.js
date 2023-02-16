@@ -21,8 +21,7 @@ exports.handler = async (event, context) => {
   for (let i=0;  i < myFldNamesArray.length; i++){
     console.log(myFldNamesArray[i])
     console.log(myFldValsArray[i])
-    console.log(myFldNamesArray[i]+ ':' + myFldValsArray[i])
-    dingo = ' ' + myFldNamesArray[i]+ ':' + myFldValsArray[i]
+    dingo += ' ' + myFldNamesArray[i]+ ':' + myFldValsArray[i]
   }
   console.table(dingo)
   console.log('25 appendSupabase')

@@ -15,6 +15,7 @@ exports.handler = async (event, context) => {
   for (let i=0;  i < qsParms.length; i++){
     console.log(qsParms.length)
     foo += foo + qsParms[i]
+    console.log('18 we are inside da loop ')
   }
   console.log('19 appendSupabase')
   console.log(foo)
@@ -23,9 +24,9 @@ exports.handler = async (event, context) => {
   console.log(' flds: ',flds)
   console.table(flds)
   console.log('17 appendSupabase.js ')
-  let myFieldsObj = JSON.parse(flds)
-  console.log('18 myfieldsObj:')
-  console.table(myFieldsObj)
+  // let myFieldsObj = JSON.parse(flds)
+  // console.log('18 myfieldsObj:')
+  // console.table(myFieldsObj)
 
   console.log('21 ready to run supabaseClient')
   const { data , error } = await supabaseClient

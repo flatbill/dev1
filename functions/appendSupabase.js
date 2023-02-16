@@ -23,21 +23,23 @@ exports.handler = async (event, context) => {
   console.table(myFldValsArray)
   let dingo = ''
   console.log('20 appendSupabase')
-  for (let i=0;  i < myFldNamesArray.length; i++){
+  // for (let i=0;  i < myFldNamesArray.length; i++){
     // console.log(myFldNamesArray[i])
     // console.log(myFldValsArray[i])
-    if (myFldNamesArray[i] !='tbl') { //hack. supabase table nm is in qs.
-     // dingo += ' ' + myFldNamesArray[i]+ ':' + myFldValsArray[i] + ','
-    }
-  }
+    // if (myFldNamesArray[i] !='tbl') { //hack. supabase table nm is in qs.
+    //  // dingo += ' ' + myFldNamesArray[i]+ ':' + myFldValsArray[i] + ','
+    // }
+  // }
   // dingoArray = Object.keys(qsParms).map(x =>  )sArray.map
-  // sArray.
+  // pissArray = []
   // let ii = 0
   // for (const [key, value] of Object.entries(qsParms)) {
   //   console.log(`${key} : ${value}`)
-  //   [ii] = key +':'+ value + ','
+  //   pissArray.push( `${key} : ${value}`)
+  //   // [ii] = key +':'+ value + ','
   //   ii = ii + 1
   // }
+  // console.log(pissArray)
   let  entries = Object.entries(qsParms)
   console.log(entries)
   //duz this combine fields and Valuess into an object

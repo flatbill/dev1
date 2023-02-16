@@ -42,9 +42,20 @@ exports.handler = async (event, context) => {
   // console.log(pissArray)
   let  entries = Object.entries(qsParms)
   console.log(entries)
+  // let pearArray = 
+  // [
+  //   ["key1","value1"], 
+  //   ["key2", "value2"], 
+  //   ["key3", "value3"]
+  // ]
+  // .reduce((acc, [key, value])=>({...acc, [key]: value}), {});
+  // ['a','b','c'].reduce((m,e,i) => Object.assign(m, {[i]: e}), {});
+  entries.reduce((m,e,i) => Object.assign(m, {[i]: e}), {});
+  console.log('54')
+  console.log(entries)
   //duz this combine fields and Valuess into an object
   // that looks like {"cust": '62',"qid" : '16} ?
-  console.log('33 appendSupabase')
+  console.log('58 appendSupabase')
   // console.table(dingo)
  // dingoObj = Object.assign({}, ['a','b','c']); // {0:"a", 1:"b", 2:"c"}
   // dingoObj = Object.assign({}, ['a','b','c']); // {0:"a", 1:"b", 2:"c"}

@@ -13,9 +13,9 @@ exports.handler = async (event, context) => {
   // console.log(Object.values(qsParms))
   console.log('we reached lined 15 appendSupabase')
   let myFldNamesArray = Object.keys(qsParms).map(x => x )
-  // let v = Object.values(qsParms).map(x => x + '^^' )
-   console.table(myFldNamesArray)
-  // console.table(v)
+  let myFldValsArray = Object.values(qsParms).map(x => x)
+  console.table(myFldNamesArray)
+  console.table(myFldValsArray)
 
   console.log('20 appendSupabase')
   // for (let i=0;  i < myKeyTbl.length; i++){

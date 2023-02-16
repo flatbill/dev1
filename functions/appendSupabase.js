@@ -1,4 +1,5 @@
 import { createClient } from '@supabase/supabase-js' 
+import { objectify } from 'tslint/lib/utils'
 const supaUrl = process.env.supaUrl
 const supaAnonKey = process.env.supaAnonKey
 const supabaseClient = createClient(supaUrl,supaAnonKey)
@@ -40,6 +41,15 @@ exports.handler = async (event, context) => {
     ii = ii + 1
   }
   console.table(pissArray)
+  const pissObj = Object.fromEntries(pissArray);
+  console.log('45 45 45 45 45 45 ')
+  console.table(pissObj)
+  console.table(pissObj)
+  console.table(pissObj)
+  console.table(pissObj)
+  console.table(pissObj)
+
+  //transform pissArray to an obj..
   // let  entries = Object.entries(qsParms)
   // console.log(entries)
   //duz this combine fields and Valuess into an object

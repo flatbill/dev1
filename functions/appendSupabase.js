@@ -7,14 +7,15 @@ exports.handler = async (event, context) => {
   console.log('7 running Netlify lambda function: appendSupabase')
   const qsParms = event.queryStringParameters
   console.table(qsParms)
-  let tbl  = qsParms.tbl            || 'guitarsy'
-  let fields = qsParms.fields       || 'makey'
+  let tbl  = qsParms.tbl        || 'guitarsy'
+  let flds = qsParms.flds       || 'makey'
 
   let maxRows = qsParms.maxRows || '1'
   console.log(' tbl: ',tbl)
-  console.log(' fields: ',fields)
-  console.table(fields)
-  let myFieldsObj = JSON.parse(fields)
+  console.log(' flds: ',flds)
+  console.table(flds)
+  console.log('17 appendSupabase.js ')
+  let myFieldsObj = JSON.parse(flds)
   console.log('18 myfieldsObj:')
   console.table(myFieldsObj)
 

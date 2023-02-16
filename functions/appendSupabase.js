@@ -11,7 +11,7 @@ exports.handler = async (event, context) => {
   let flds = qsParms.flds       || 'makey'
   // console.log('answerPoints:')
   // console.log('qsParms.answerPoints')
-  foo = 'foo-----'
+  let foo = 'foo-----'
   for (let i=0;  i < qsParms.length; i++){
     console.log(qsParms.length)
     foo += foo + qsParms[i]
@@ -29,8 +29,10 @@ exports.handler = async (event, context) => {
 
   console.log('21 ready to run supabaseClient')
   const { data , error } = await supabaseClient
-.from(tbl) //("qtAnswers")    //(tbl)  //tblObj {'cust': '62', 'qid': '116'}
-.insert( myFieldsObj )
+  .from(tblbillyy) //("qtAnswers")    //(tbl)  //tblObj {'cust': '62', 'qid': '116'}
+  .insert( myFieldsObj )
+
+
 //.insert([{myFieldsObj}])
 //.insert({myFieldsObj})
 // .insert({'cust': '62', 'qid': '116'})  //works

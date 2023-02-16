@@ -9,13 +9,14 @@ exports.handler = async (event, context) => {
   console.table(qsParms)
   let tbl  = qsParms.tbl        || 'guitarsy'
   let flds = qsParms.flds       || 'makey'
-  console.log('answerPoints:')
-  console.log('qsParms.answerPoints')
+  // console.log('answerPoints:')
+  // console.log('qsParms.answerPoints')
   foo = 'foo-----'
-  for (let i=0;  i < qsParms.flds.length; i++){
+  for (let i=0;  i < qsParms.length; i++){
     console.log(qsParms.length)
     foo += foo + qsParms[i]
   }
+  console.log('19 appendSupabase')
   console.log(foo)
   let maxRows = qsParms.maxRows || '1'
   console.log(' tbl: ',tbl)

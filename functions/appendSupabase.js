@@ -20,15 +20,13 @@ exports.handler = async (event, context) => {
   console.log('20 appendSupabase')
   for (let i=0;  i < myFldNamesArray.length; i++){
     console.log(myFldNamesArray[i])
+    console.log(myFldValsArray[i])
+    console.log(myFldNamesArray[i]+ ':' + myFldValsArray[i])
   }
-  console.log('19 appendSupabase')
-  console.log('17 appendSupabase.js ')
+  console.log('25 appendSupabase')
   let fldsObj = {}
-  // let myFieldsObj = JSON.parse(flds)
-  // console.log('18 myfieldsObj:')
-  // console.table(myFieldsObj)
 
-  console.log('21 ready to run supabaseClient')
+  console.log('30 ready to run supabaseClient')
   const { data , error } = await supabaseClient
   .from(tbl) //("qtAnswers")    //(tbl)  //tblObj {'cust': '62', 'qid': '116'}
   //.insert( fldsObj )

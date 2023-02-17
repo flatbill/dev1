@@ -50,14 +50,15 @@ exports.handler = async (event, context) => {
       commaOrNull=''
     }
     if (key!='tbl'){
-    pissTxt += dq + key + dq + ':' + dq + value + dq + commaOrNull
+    pissTxt += dq + key + dq + ':' + dq + value + dq + ','
     }
  }
+ const myString = pissTxt
+ pissTxt = pissTxt.substring(pissTxt.length - 1)
  pissTxt += '}'
+ console.log(pissTxt)
 
-  console.log( Object.entries(qsParms).length)
-  // console.table(pissArray)
-  console.log(pissTxt)
+  //console.log( Object.entries(qsParms).length)
   console.log('58')
   // const pissObj = Object.fromEntries(pissArray);
   // console.log('45 45 45 45 45 45 ')

@@ -61,7 +61,7 @@ exports.handler = async (event, context) => {
     pissTxt += dq + key + dq + ':' + dq + value + dq + ','
  }
 //  const myString = pissTxt
- pissTxt = pissTxt.substring(pissTxt.length - 1)
+ pissTxt = pissTxt.substring(0, pissTxt.length - 1)
  pissTxt += '}'
  console.log(pissTxt)
  console.log(pissTxt)

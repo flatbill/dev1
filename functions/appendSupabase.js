@@ -58,11 +58,13 @@ exports.handler = async (event, context) => {
     // if(parmCnt==Object.entries(qsParms).length){ // last entry
     //   commaOrNull=''
     // }
-    pissTxt += dq + key + dq + ':' + dq + value + dq + ','
+    if(key!='tbl'){//we only want field names, not the table name.
+      pissTxt += dq + key + dq + ':' + dq + value + dq + ','
+    }
  }
 //  const myString = pissTxt
- pissTxt = pissTxt.substring(0, pissTxt.length - 1)
- pissTxt += '}'
+ pissTxt = pissTxt.substring(0, pissTxt.length - 1) // remove last comma
+ pissTxt += '}' //stick a bracket on the end.
  console.log(pissTxt)
  console.log(pissTxt)
  console.log(pissTxt)

@@ -16,19 +16,28 @@ exports.handler = async (event, context) => {
   console.log('7 running Netlify lambda function: appendSupabase')
   console.log('7 running Netlify lambda function: appendSupabase')
   console.log('7 running Netlify lambda function: appendSupabase')
+  console.log('7 running Netlify lambda function: appendSupabase')
+  console.log('7 running Netlify lambda function: appendSupabase')
+  console.log('7 running Netlify lambda function: appendSupabase')
+  console.log('7 running Netlify lambda function: appendSupabase')
+  console.log('7 running Netlify lambda function: appendSupabase')
+  console.log('7 running Netlify lambda function: appendSupabase')
+  console.log('7 running Netlify lambda function: appendSupabase')
+  console.log('7 running Netlify lambda function: appendSupabase')
+  console.log('7 running Netlify lambda function: appendSupabase')
   const qsParms = event.queryStringParameters
   let tbl  = qsParms.tbl         || 'defaultTable'
 
   console.table(qsParms)
   console.table(tbl)
   // console.log(Object.values(qsParms))
-  console.log('we reached lined 15 appendSupabase')
+  console.log('25 appendSupabase')
   let myFldNamesArray = Object.keys(qsParms).map(x => x )
   let myFldValsArray = Object.values(qsParms).map(x => x)
   console.table(myFldNamesArray)
   console.table(myFldValsArray)
-  let dingo = ''
-  console.log('20 appendSupabase')
+  // let dingo = ''
+  console.log('31 appendSupabase')
   // for (let i=0;  i < myFldNamesArray.length; i++){
     // console.log(myFldNamesArray[i])
     // console.log(myFldValsArray[i])
@@ -39,23 +48,24 @@ exports.handler = async (event, context) => {
   // dingoArray = Object.keys(qsParms) 
   // pissArray = []
   pissTxt = '{'
-  let parmCnt = 0
+  // let parmCnt = 0
   dq = '"'
-  commaOrNull = ','
+  // commaOrNull = ','
   for (const [key, value] of Object.entries(qsParms)) {
     // console.log(`${key} : ${value}`)
     // pissArray.push( `${key} : ${value}`)
-    parmCnt = parmCnt + 1
-    if(parmCnt==Object.entries(qsParms).length){ // last entry
-      commaOrNull=''
-    }
-    if (key!='tbl'){
+    // parmCnt = parmCnt + 1
+    // if(parmCnt==Object.entries(qsParms).length){ // last entry
+    //   commaOrNull=''
+    // }
     pissTxt += dq + key + dq + ':' + dq + value + dq + ','
-    }
  }
- const myString = pissTxt
+//  const myString = pissTxt
  pissTxt = pissTxt.substring(pissTxt.length - 1)
  pissTxt += '}'
+ console.log(pissTxt)
+ console.log(pissTxt)
+ console.log(pissTxt)
  console.log(pissTxt)
 
   //console.log( Object.entries(qsParms).length)

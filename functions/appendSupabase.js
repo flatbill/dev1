@@ -16,24 +16,21 @@ exports.handler = async (event, context) => {
   for (let [myKey, myValue] of Object.entries(qsParms)) {
     if(myKey!='tbl'){//we only want field names, not the table name.
       myTxt += dq + myKey + dq + ':' + dq + myValue + dq + ','
-    }
- }
+    } // end if
+ }  // end for
  myTxt = myTxt.substring(0, myTxt.length - 1) + '}' // remove last comma, stick bracket on end.
  console.log('22 appendSupabase myTxt:')
  console.log(myTxt)
-
-  console.log('52 lambda function appendSupabase')
-  let fldsObj= JSON.parse(myTxt)
-  console.log('27 appendSupabase fldsObj:',fldsObj)
+  let myFldsObj= JSON.parse(myTxt)
+  console.log('25 appendSupabase myFldsObj:',myFldsObj)
   const { data , error } = await supabaseClient
-  .from(tbl) //("qtAnswers")    //(tbl)  //tblObj {'cust': '62', 'qid': '116'}
-  .insert( fldsObj )
+  .from(tbl)              // ("qtAnswers")    
+  .insert( myFldsObj )    // {'cust': '62', 'qid': '116'}
   .select()
 
 if (error){console.log('error from appendSupabase.',error)}
 if (data){console.log('got data from appendSupabase.',data)}
-
-  console.log('we reached line 36 appendSupabase')
+  console.log('we reached line 33 appendSupabase')
   supabaseData = data //supabase seems to like the word 'data'
   console.log('supabaseData:')
   console.table(supabaseData)

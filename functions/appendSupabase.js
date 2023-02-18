@@ -10,59 +10,17 @@ exports.handler = async (event, context) => {
   console.table(qsParms)
   console.table(tbl)
   console.log('12 lambda function appendSupabase')
-  // let myFldNamesArray = Object.keys(qsParms) //.map(x => x )
-  // let myFldValsArray = Object.values(qsParms) //.map(x => x)
-  // console.table(myFldNamesArray)
-  // console.table(myFldValsArray)
-  // let dingo = ''
-  console.log('18 lambda function appendSupabase')
-  // for (let i=0;  i < myFldNamesArray.length; i++){
-    // console.log(myFldNamesArray[i])
-    // console.log(myFldValsArray[i])
-    // if (myFldNamesArray[i] !='tbl') { //hack. supabase table nm is in qs.
-    //  // dingo += ' ' + myFldNamesArray[i]+ ':' + myFldValsArray[i] + ','
-    // }
-  // }
-  // dingoArray = Object.keys(qsParms) 
-  // pissArray = []
   let pissTxt = '{'
-  // let parmCnt = 0
   let dq = '"'
-  // commaOrNull = ','
-  for (const [key, value] of Object.entries(qsParms)) {
-    // console.log(`${key} : ${value}`)
-    // pissArray.push( `${key} : ${value}`)
-    // parmCnt = parmCnt + 1
-    // if(parmCnt==Object.entries(qsParms).length){ // last entry
-    //   commaOrNull=''
-    // }
+  for (const [myKey, myValue] of Object.entries(qsParms)) {
     if(key!='tbl'){//we only want field names, not the table name.
-      pissTxt += dq + key + dq + ':' + dq + value + dq + ','
+      pissTxt += dq + myKey + dq + ':' + dq + myValue + dq + ','
     }
  }
-//  const myString = pissTxt
- pissTxt = pissTxt.substring(0, pissTxt.length - 1) // remove last comma
- pissTxt += '}' //stick a bracket on the end.
- console.log(pissTxt)
- console.log(pissTxt)
- console.log(pissTxt)
+ pissTxt = pissTxt.substring(0, pissTxt.length - 1) + '}' // remove last comma, stick bracket on end.
  console.log(pissTxt)
 
-  //console.log( Object.entries(qsParms).length)
   console.log('52 lambda function appendSupabase')
-  // const pissObj = Object.fromEntries(pissArray);
-  // console.log('45 45 45 45 45 45 ')
-  // console.table(pissObj)
-  // console.table(pissObj)
-  // console.table(pissObj)
-  // console.table(pissObj)
-  // console.table(pissObj)
-
-  //transform pissArray to an obj..
-  // let  entries = Object.entries(qsParms)
-  // console.log(entries)
-  //duz this combine fields and Valuess into an object
-  // that looks like {"cust": '62',"qid" : '16} ?
   console.log('66 lambda function appendSupabase')
   let fldsObj= JSON.parse(pissTxt)
   console.log(fldsObj)
@@ -70,9 +28,6 @@ exports.handler = async (event, context) => {
   const { data , error } = await supabaseClient
   .from(tbl) //("qtAnswers")    //(tbl)  //tblObj {'cust': '62', 'qid': '116'}
   .insert( fldsObj )
-//.insert([{myFieldsObj}])
-//.insert({myFieldsObj})
- //.insert({'cust': '6243', 'qid': '116'})  //works
  .select()
 
 if (error){console.log('error from appendSupabase.',error)}

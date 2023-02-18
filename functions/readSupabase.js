@@ -41,14 +41,9 @@ exports.handler = async (event, context) => {
         fld4= myKey
         fld4v=myValue
       }
-      ii=ii+1
+      ii=ii+1 // loop increment, set one of these: fld1,2,3,4
     } // end if
  }  // end for
-//  myTxt = myTxt.substring(0, myTxt.length - 1) + '}' // remove last comma, stick bracket on end.
-//  console.log('22 readSupabase myTxt:')
-//  console.log(myTxt)
-//   let myFldsObj= JSON.parse(myTxt)
-  // console.log('25 readSupabase myFldsObj:',myFldsObj)
 
   //hack. can have up to to four supabase keys, but not all tables have four keys.
   //  so, re-use field1 as field2,3,4.

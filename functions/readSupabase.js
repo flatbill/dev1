@@ -6,52 +6,72 @@ const supabaseClient = createClient(supaUrl,supaAnonKey)
 exports.handler = async (event, context) => {
   console.log('7 running Netlify lambda function: readSupabase')
   const qsParms = event.queryStringParameters
-  // console.table(qsParms)
-  let tbl  = qsParms.tbl         || 'guitarsy'
-  let fld1 = qsParms.fld1        || 'makey'
-  let fld1v = qsParms.fld1v      || 'Washburny'
-  let fld2 = qsParms.fld2        || fld1
-  let fld2v = qsParms.fld2v      || fld1v
-  let fld3 = qsParms.fld3        || fld1
-  let fld3v = qsParms.fld3v      || fld1v
-  let fld4 = qsParms.fld4        || fld1
-  let fld4v = qsParms.fld4v      || fld1v
-  let maxRows = qsParms.maxRows   || '1'
-  //hack. can have up to to 4 supabase keys, but not all tables
-  // have 4.  so, re-use field1 as field2,3,4.
-  // relies on passing-in 'noKey_' to this function.
-  // might be better to test for no field passed in?
-  // if the .eq statement can be made variable, well, that would be great.
-  if (fld2 == 'noKey2'){
+  let tbl  = qsParms.tbl         || 'defaultTable'
+  let fld1 = ''
+  let fld1v = ''
+  let fld2 = ''
+  let fld2v = ''
+  let fld3 = ''
+  let fld3v = ''
+  let fld4 = ''
+  let fld4v = ''
+  console.log('10 readSupabase qsParms and tbl:')
+  console.table(qsParms)
+  console.table(tbl)
+  console.log('13  readSupabase')
+  let myTxt = '{'
+  let dq = '"'
+  let ii = 1
+  for (let [myKey, myValue] of Object.entries(qsParms)) {
+    if(myKey!='tbl'){//we only want field names, not the table name.
+      myTxt += dq + myKey + dq + ':' + dq + myValue + dq + ','
+      if (ii==1){
+        fld1= myKey
+        fld1v=myValue
+      }
+      if (ii==2){
+        fld2= myKey
+        fld2v=myValue
+      }
+      if (ii==3){
+        fld3= myKey
+        fld3v=myValue
+      }
+      if (ii==4){
+        fld4= myKey
+        fld4v=myValue
+      }
+      ii=ii+1
+    } // end if
+ }  // end for
+//  myTxt = myTxt.substring(0, myTxt.length - 1) + '}' // remove last comma, stick bracket on end.
+//  console.log('22 readSupabase myTxt:')
+//  console.log(myTxt)
+//   let myFldsObj= JSON.parse(myTxt)
+  // console.log('25 readSupabase myFldsObj:',myFldsObj)
+
+  //hack. can have up to to four supabase keys, but not all tables have four keys.
+  //  so, re-use field1 as field2,3,4.
+  if (fld2 == ''){ // there aint no field2, so set field2 same as field1.
     fld2=fld1
     fld2v=fld1v
   }
-  if (fld3 == 'noKey3'){
+  if (fld3 == ''){ // there aint no field3, so set field3 same as field1.
     fld3=fld1
     fld3v=fld1v
   }
-  if (fld4 == 'noKey4'){
+  if (fld4 == ''){// there aint no field4, so set field4 same as field1.
     fld4=fld1
     fld4v=fld1v
   }
-  console.log(' tbl: ',tbl)
-  console.log(' fld1: ',fld1)
-  console.log(' fld1v: ',fld1v)
-  console.log(' fld2: ',fld2)
-  console.log(' fld2v: ',fld2v)
-  console.log(' fld3: ',fld3)
-  console.log(' fld3v: ',fld3v)
-  console.log(' fld4: ',fld4)
-  console.log(' fld4v: ',fld4v)
-  console.log(' maxRows: ',maxRows)
   const { data } = await supabaseClient
   .from(tbl).select()
   .eq(fld1, fld1v)
   .eq(fld2, fld2v)
   .eq(fld3, fld3v)
   .eq(fld4, fld4v)
-  .limit(maxRows)
-  console.log('we reached line 32 readSupabase')
+  .limit(1)
+  console.log('we reached line 74 readSupabase')
   supabaseData = data //supabase seems to like the word 'data'
   console.log('supabaseData:')
   console.table(supabaseData)

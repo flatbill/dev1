@@ -5,39 +5,17 @@ const supabaseClient = createClient(supaUrl,supaAnonKey)
 //  
 exports.handler = async (event, context) => {
   console.log('7 running Netlify lambda function: appendSupabase')
-  console.log('7 running Netlify lambda function: appendSupabase')
-  console.log('7 running Netlify lambda function: appendSupabase')
-  console.log('7 running Netlify lambda function: appendSupabase')
-  console.log('7 running Netlify lambda function: appendSupabase')
-  console.log('7 running Netlify lambda function: appendSupabase')
-  console.log('7 running Netlify lambda function: appendSupabase')
-  console.log('7 running Netlify lambda function: appendSupabase')
-  console.log('7 running Netlify lambda function: appendSupabase')
-  console.log('7 running Netlify lambda function: appendSupabase')
-  console.log('7 running Netlify lambda function: appendSupabase')
-  console.log('7 running Netlify lambda function: appendSupabase')
-  console.log('7 running Netlify lambda function: appendSupabase')
-  console.log('7 running Netlify lambda function: appendSupabase')
-  console.log('7 running Netlify lambda function: appendSupabase')
-  console.log('7 running Netlify lambda function: appendSupabase')
-  console.log('7 running Netlify lambda function: appendSupabase')
-  console.log('7 running Netlify lambda function: appendSupabase')
-  console.log('7 running Netlify lambda function: appendSupabase')
-  console.log('7 running Netlify lambda function: appendSupabase')
-  console.log('7 running Netlify lambda function: appendSupabase')
   const qsParms = event.queryStringParameters
   let tbl  = qsParms.tbl         || 'defaultTable'
-
   console.table(qsParms)
   console.table(tbl)
-  // console.log(Object.values(qsParms))
-  console.log('25 appendSupabase')
-  let myFldNamesArray = Object.keys(qsParms).map(x => x )
-  let myFldValsArray = Object.values(qsParms).map(x => x)
-  console.table(myFldNamesArray)
-  console.table(myFldValsArray)
+  console.log('12 lambda function appendSupabase')
+  // let myFldNamesArray = Object.keys(qsParms) //.map(x => x )
+  // let myFldValsArray = Object.values(qsParms) //.map(x => x)
+  // console.table(myFldNamesArray)
+  // console.table(myFldValsArray)
   // let dingo = ''
-  console.log('31 appendSupabase')
+  console.log('18 lambda function appendSupabase')
   // for (let i=0;  i < myFldNamesArray.length; i++){
     // console.log(myFldNamesArray[i])
     // console.log(myFldValsArray[i])
@@ -47,9 +25,9 @@ exports.handler = async (event, context) => {
   // }
   // dingoArray = Object.keys(qsParms) 
   // pissArray = []
-  pissTxt = '{'
+  let pissTxt = '{'
   // let parmCnt = 0
-  dq = '"'
+  let dq = '"'
   // commaOrNull = ','
   for (const [key, value] of Object.entries(qsParms)) {
     // console.log(`${key} : ${value}`)
@@ -71,7 +49,7 @@ exports.handler = async (event, context) => {
  console.log(pissTxt)
 
   //console.log( Object.entries(qsParms).length)
-  console.log('58')
+  console.log('52 lambda function appendSupabase')
   // const pissObj = Object.fromEntries(pissArray);
   // console.log('45 45 45 45 45 45 ')
   // console.table(pissObj)
@@ -85,7 +63,7 @@ exports.handler = async (event, context) => {
   // console.log(entries)
   //duz this combine fields and Valuess into an object
   // that looks like {"cust": '62',"qid" : '16} ?
-  console.log('72 appendSupabase')
+  console.log('66 lambda function appendSupabase')
   let fldsObj= JSON.parse(pissTxt)
   console.log(fldsObj)
   console.log('74 ready to run supabaseClient')

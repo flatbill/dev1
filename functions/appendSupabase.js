@@ -12,8 +12,8 @@ exports.handler = async (event, context) => {
   console.log('12 lambda function appendSupabase')
   let pissTxt = '{'
   let dq = '"'
-  for (const [myKey, myValue] of Object.entries(qsParms)) {
-    if(key!='tbl'){//we only want field names, not the table name.
+  for (let [myKey, myValue] of Object.entries(qsParms)) {
+    if(myKey!='tbl'){//we only want field names, not the table name.
       pissTxt += dq + myKey + dq + ':' + dq + myValue + dq + ','
     }
  }

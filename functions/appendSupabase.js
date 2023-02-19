@@ -5,7 +5,7 @@ const supabaseClient = createClient(supaUrl,supaAnonKey)
 //  
 exports.handler = async (event, context) => {
   console.log('7 running Netlify lambda function: appendSupabase')
-  const qsParms = event.queryStringParameters
+  let qsParms = event.queryStringParameters
   let tbl  = qsParms.tbl         || 'defaultTable'
   console.log('10 appendSupabase qsParms and tbl:')
   console.table(qsParms)
@@ -17,29 +17,29 @@ exports.handler = async (event, context) => {
     if(myKey!='tbl'){//we only want field names, not the table name.
       myTxt += dq + myKey + dq + ':' + dq + myValue + dq + ','
     } // end if
- }  // end for
- myTxt = myTxt.substring(0, myTxt.length - 1) + '}' // remove last comma, stick bracket on end.
- console.log('22 appendSupabase myTxt:')
- console.log(myTxt)
+  }  // end for
+  myTxt = myTxt.substring(0, myTxt.length - 1) + '}' // remove last comma, stick bracket on end.
+  console.log('22 appendSupabase myTxt:')
+  console.log(myTxt)
   let myFldsObj= JSON.parse(myTxt)
   console.log('25 appendSupabase myFldsObj:',myFldsObj)
-  const { data , error } = await supabaseClient
+  let { data , error } = await supabaseClient
   .from(tbl)              // ("qtAnswers")    
   .insert( myFldsObj )    // {'cust': '62', 'qid': '116'}
   .select()
 
-if (error){console.log('error from appendSupabase.',error)}
-if (data){console.log('got data from appendSupabase.',data)}
+ if (error){console.log('error from appendSupabase.',error)}
+ if (data){console.log('got data from appendSupabase.',data)}
   console.log('we reached line 33 appendSupabase')
-  supabaseData = data //supabase seems to like the word 'data'
+  let supabaseData = data //supabase seems to like the word 'data'
   console.log('supabaseData:')
   console.table(supabaseData)
   let myObj2 = {  supabaseData }
-  const myResponse = {
+  let myResponse = {
     statusCode: 201,
     headers: {'Access-Control-Allow-Origin': '*'},
     body:  JSON.stringify(myObj2)
   }
-  console.log('we reached the end of appendSupabase. ready to return.')
+  console.log('43 we reached the end of appendSupabase lambda. ready to return.')
   return myResponse   
 } // end export.handler 

@@ -5,7 +5,7 @@ const supabaseClient = createClient(supaUrl,supaAnonKey)
 //  
 exports.handler = async (event, context) => {
   console.log('7 running Netlify lambda function: readSupabase')
-  const qsParms = event.queryStringParameters
+  let qsParms = event.queryStringParameters
   let tbl  = qsParms.tbl         || 'defaultTable'
   let fld1 = ''
   let fld1v = ''
@@ -59,7 +59,7 @@ exports.handler = async (event, context) => {
     fld4=fld1
     fld4v=fld1v
   }
-  const { data } = await supabaseClient
+  let { data } = await supabaseClient
   .from(tbl).select()
   .eq(fld1, fld1v)
   .eq(fld2, fld2v)
@@ -71,7 +71,7 @@ exports.handler = async (event, context) => {
   console.log('supabaseData:')
   console.table(supabaseData)
   let myObj2 = {  supabaseData }
-  const myResponse = {
+  let myResponse = {
     statusCode: 200,
     headers: {'Access-Control-Allow-Origin': '*'},
     body:  JSON.stringify(myObj2)

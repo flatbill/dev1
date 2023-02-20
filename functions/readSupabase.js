@@ -65,7 +65,7 @@ exports.handler = async (event, context) => {
   .eq(fld2, fld2v)
   .eq(fld3, fld3v)
   .eq(fld4, fld4v)
-  .limit(1)
+  .limit(500)
   console.log('we reached line 74 readSupabase')
   supabaseData = data //supabase seems to like the word 'data'
   console.log('supabaseData:')

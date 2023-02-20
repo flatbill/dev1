@@ -19,6 +19,8 @@ exports.handler = async (event, context) => {
     } // end if
   }  // end for
   myTxt = myTxt.substring(0, myTxt.length - 1) + '}' // remove last comma, stick bracket on end.
+  myTxt = (myTxt.replaceAll('[', '{'))
+  myTxt = (myTxt.replaceAll(']', '}'))
   console.log('22 appendSupabase myTxt:')
   console.log(myTxt)
   let myFldsObj= JSON.parse(myTxt)

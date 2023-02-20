@@ -59,7 +59,8 @@ exports.handler = async (event, context) => {
     fld4=fld1
     fld4v=fld1v
   }
-  console.log(fld1,fld1v,fld2,fld2v,fld3,fld3v,fld4,fld4v)
+  console.log('62 ',fld1,fld1v,fld2,fld2v,fld3,fld3v,fld4,fld4v)
+  console.log('63 gonna await supabaseClient')
   let { data } = await supabaseClient
   .from(tbl).select()
   .eq(fld1, fld1v)

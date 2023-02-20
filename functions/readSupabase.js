@@ -63,11 +63,11 @@ exports.handler = async (event, context) => {
   console.log('63 gonna await supabaseClient')
   let { data } = await supabaseClient
   .from(tbl)
+  .select()
   .eq(fld1, fld1v)
   .eq(fld2, fld2v)
   .eq(fld3, fld3v)
   .eq(fld4, fld4v)
-  .select()
   .limit(300)
   console.log('we reached line 71 readSupabase')
   supabaseData = data //supabase seems to like the word 'data'

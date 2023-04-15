@@ -81,7 +81,6 @@ exports.handler = async (event, context) => {
   .eq(fld2, fld2v)
   .eq(fld3, fld3v)
   .eq(fld4, fld4v)
-  .limit(1) //1 for test 300 for real
   .select()
 
  if (error){console.log('error from delSupabase.',error)}

@@ -4,7 +4,7 @@ const supaAnonKey = process.env.supaAnonKey
 const supabaseClient = createClient(supaUrl,supaAnonKey)
 //  
 exports.handler = async (event, context) => {
-  console.log('7 running Netlify lambda function: readSupabase')
+  console.log('7 running Netlify lambda function: delSupabase')
   let qsParms = event.queryStringParameters
   let tbl  = qsParms.tbl         || 'defaultTable'
   let fld1 = ''
@@ -15,12 +15,19 @@ exports.handler = async (event, context) => {
   let fld3v = ''
   let fld4 = ''
   let fld4v = ''
-  console.log('10 readSupabase qsParms and tbl:')
+
+  console.log('10 delSupabase qsParms and tbl:')
   console.table(qsParms)
   console.table(tbl)
-  console.log('13  readSupabase')
+  console.log('13  delSupabase')
   let myTxt = '{'
   let dq = '"'
+  for (let [myKey, myValue] of Object.entries(qsParms)) {
+    if(myKey!='tbl'){//we only want field names, not the table name.
+      myTxt += dq + myKey + dq + ':' + dq + myValue + dq + ','
+    } // end if
+  }  // end for
+
   let ii = 1
   for (let [myKey, myValue] of Object.entries(qsParms)) {
     if(myKey!='tbl'){//we only want field names, not the table name.
@@ -61,17 +68,27 @@ exports.handler = async (event, context) => {
   }
   console.log('62 ',fld1,fld1v,fld2,fld2v,fld3,fld3v,fld4,fld4v)
   console.log('63 gonna await supabaseClient')
-  let { data } = await supabaseClient
-  .from(tbl)
-  .select()
+
+  myTxt = myTxt.substring(0, myTxt.length - 1) + '}' // remove last comma, stick bracket on end.
+  console.log('73 delSupabase myTxt:')
+  console.log(myTxt)
+  let myFldsObj= JSON.parse(myTxt)
+  console.log('76 delSupabase myFldsObj:',myFldsObj)
+  let { data , error } = await supabaseClient
+  .from(tbl)              // ("qtAnswers")    
+  .delete()
   .eq(fld1, fld1v)
   .eq(fld2, fld2v)
   .eq(fld3, fld3v)
   .eq(fld4, fld4v)
-  .limit(300)
-  console.log('we reached line 71 readSupabase')
-  supabaseData = data //supabase seems to like the word 'data'
-  console.log('74 supabaseData:')
+  .limit(1) //1 for test 300 for real
+  .select()
+
+ if (error){console.log('error from delSupabase.',error)}
+ if (data){console.log('got data from delSupabase.',data)}
+  console.log('we reached line 89 delSupabase')
+  let supabaseData = data //supabase seems to like the word 'data'
+  console.log('supabaseData:')
   console.table(supabaseData)
   let myObj2 = {  supabaseData }
   let myResponse = {
@@ -79,7 +96,6 @@ exports.handler = async (event, context) => {
     headers: {'Access-Control-Allow-Origin': '*'},
     body:  JSON.stringify(myObj2)
   }
-  console.log('81,',fld1,fld1v,fld2,fld2v,fld3,fld3v,fld4,fld4v)
-  console.log('we reached the end of readSupabase. ready to return.')
+  console.log('99 we reached the end of delSupabase lambda. ready to return.')
   return myResponse   
 } // end export.handler 

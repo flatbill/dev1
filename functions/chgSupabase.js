@@ -42,10 +42,9 @@ exports.handler = async (event, context) => {
   let { data } = await supabaseClient
   .from(tbl)
   .update(myObj)
-  .eq('id', 190)
+  .eq('id', idNumeric)
   .select()
   //.update(myTxt)
-  //.eq('id', idNumeric)
   // .update({"scoreboardName":"scoreboard03tw","scoreboardSeq":'37'})
   // .update({"cust":"2","qid":"4","scoreboardName":"scoreboard03tb","scoreboardNbr":"03","scoreboardSeq":"03"})
 

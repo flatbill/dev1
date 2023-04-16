@@ -40,9 +40,10 @@ exports.handler = async (event, context) => {
   console.log('75 gonna await supabaseClient')
   let { data } = await supabaseClient
   .from(tbl)
-  .update(myTxt)
+  .update({"scoreboardName":"scoreboard03tt"})
   .eq('id', 190)
   .select()
+  //.update(myTxt)
   //.eq('id', idNumeric)
 
   console.log('we reached line 82 chgSupabase (after supabase call')

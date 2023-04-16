@@ -14,17 +14,15 @@ exports.handler = async (event, context) => {
   let myTxt = '{'
   let dq = '"'
   for (let [myKey, myValue] of Object.entries(qsParms)) {
-    if(myKey!='tbl'){//we only want field names, not the table name.
+    if (myKey!='tbl' && myKey!='id'){//we only want field names, not table name, not id.
       myTxt += dq + myKey + dq + ':' + dq + myValue + dq + ','
     } // end if
   }  // end for
   myTxt = myTxt.substring(0, myTxt.length - 1) + '}' // remove last comma, stick bracket on end.
-  // myTxt = (myTxt.replaceAll('[', '{')) //stupid postgres likes curly braces
-  // myTxt = (myTxt.replaceAll(']', '}'))
-  console.log('2424 appendSupabase myTxt:')
+  console.log('22 appendSupabase myTxt:')
   console.log(myTxt)
   let myFldsObj= JSON.parse(myTxt)
-  console.log('2727 appendSupabase myFldsObj:',myFldsObj)
+  console.log('25 appendSupabase myFldsObj:',myFldsObj)
   let { data , error } = await supabaseClient
   .from(tbl)              // ("qtAnswers")    
   .insert( myFldsObj )    // {'cust': '62', 'qid': '116'}

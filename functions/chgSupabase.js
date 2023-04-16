@@ -40,12 +40,13 @@ exports.handler = async (event, context) => {
   console.log('75 gonna await supabaseClient')
   let { data } = await supabaseClient
   .from(tbl)
-  .update({"cust":"2","qid":"4","scoreboardName":"scoreboard03tb","scoreboardNbr":"03","scoreboardSeq":"03"})
+  .update(myTxt)
   .eq('id', 190)
   .select()
   //.update(myTxt)
   //.eq('id', idNumeric)
   // .update({"scoreboardName":"scoreboard03tw","scoreboardSeq":'37'})
+  // .update({"cust":"2","qid":"4","scoreboardName":"scoreboard03tb","scoreboardNbr":"03","scoreboardSeq":"03"})
 
   console.log('we reached line 82 chgSupabase (after supabase call')
   supabaseData = data //supabase seems to like the word 'data'

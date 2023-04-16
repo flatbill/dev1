@@ -37,7 +37,7 @@ exports.handler = async (event, context) => {
   console.log('37 idNumeric: ',idNumeric)
 
   let myObj = new Object
-  myObj = myTxt
+  myObj = JSON.parse(myTxt)
   console.log('75 gonna await supabaseClient')
   let { data } = await supabaseClient
   .from(tbl)

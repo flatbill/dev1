@@ -7,6 +7,7 @@ exports.handler = async (event, context) => {
   console.log('7 running Netlify lambda function: chgSupabase')
   let qsParms = event.queryStringParameters
   let tbl  = qsParms.tbl         || 'defaultTable'
+  let id  = qsParms.id           || 0
   // let fld1 = ''
   // let fld1v = ''
   // let fld2 = ''
@@ -21,7 +22,7 @@ exports.handler = async (event, context) => {
   console.log('21  chgSupabase')
   let myTxt = '{'
   let dq = '"'
-  let id = 0
+  // let id = 0
   // let ii = 1
   for (let [myKey, myValue] of Object.entries(qsParms)) {
     if(myKey!='tbl'){//we only want field names, not the table name.
@@ -68,11 +69,14 @@ exports.handler = async (event, context) => {
     return
   }
 
+  let idNumeric = number(id)
+  console.log('73 id numeric:', idNumeric)
+
   console.log('63 gonna await supabaseClient')
   let { data } = await supabaseClient
   .from(tbl)
   .update(myTxt)
-  .eq('id', id)
+  .eq('id', idNumeric)
   // .eq(fld2, fld2v)
   // .eq(fld3, fld3v)
   // .eq(fld4, fld4v)
@@ -88,7 +92,7 @@ exports.handler = async (event, context) => {
     headers: {'Access-Control-Allow-Origin': '*'},
     body:  JSON.stringify(myObj2)
   }
-  console.log('83,',fld1,fld1v,fld2,fld2v,fld3,fld3v,fld4,fld4v)
+  // console.log('83,',fld1,fld1v,fld2,fld2v,fld3,fld3v,fld4,fld4v)
   console.log('we reached the end of chgSupabase. ready to return.')
   return myResponse   
 } // end export.handler 

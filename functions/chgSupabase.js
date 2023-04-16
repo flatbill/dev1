@@ -72,19 +72,16 @@ exports.handler = async (event, context) => {
   let idNumeric = number(id)
   console.log('73 id numeric:', idNumeric)
 
-  console.log('63 gonna await supabaseClient')
+  console.log('75 gonna await supabaseClient')
   let { data } = await supabaseClient
   .from(tbl)
   .update(myTxt)
   .eq('id', idNumeric)
-  // .eq(fld2, fld2v)
-  // .eq(fld3, fld3v)
-  // .eq(fld4, fld4v)
   .select()
   
-  console.log('we reached line 72 chgSupabase')
+  console.log('we reached line 82 chgSupabase (after supabase call')
   supabaseData = data //supabase seems to like the word 'data'
-  console.log('74 supabaseData:')
+  console.log('84 supabaseData:')
   console.table(supabaseData)
   let myObj2 = {  supabaseData }
   let myResponse = {
@@ -92,7 +89,6 @@ exports.handler = async (event, context) => {
     headers: {'Access-Control-Allow-Origin': '*'},
     body:  JSON.stringify(myObj2)
   }
-  // console.log('83,',fld1,fld1v,fld2,fld2v,fld3,fld3v,fld4,fld4v)
   console.log('we reached the end of chgSupabase. ready to return.')
   return myResponse   
 } // end export.handler 

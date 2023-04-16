@@ -36,11 +36,12 @@ exports.handler = async (event, context) => {
   console.log('36 myTxt:',myTxt)
   console.log('37 idNumeric: ',idNumeric)
 
-
+  let myObj = new Object
+  myObj = myTxt
   console.log('75 gonna await supabaseClient')
   let { data } = await supabaseClient
   .from(tbl)
-  .update(myTxt)
+  .update(myObj)
   .eq('id', 190)
   .select()
   //.update(myTxt)

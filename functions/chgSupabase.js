@@ -40,7 +40,7 @@ exports.handler = async (event, context) => {
   console.log('75 gonna await supabaseClient')
   let { data } = await supabaseClient
   .from(tbl)
-  .update({"scoreboardName":"scoreboard03tt"})
+  .update({"scoreboardName":"scoreboard03tu","scoreboardSeq":37})
   .eq('id', 190)
   .select()
   //.update(myTxt)

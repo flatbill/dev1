@@ -69,7 +69,7 @@ exports.handler = async (event, context) => {
     return
   }
 
-  let idNumeric = number(id)
+  let idNumeric = Number(id)
   console.log('73 id numeric:', idNumeric)
 
   console.log('75 gonna await supabaseClient')

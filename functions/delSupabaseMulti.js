@@ -68,7 +68,7 @@ exports.handler = async (event, context) => {
   .eq(fld2, fld2v)
   .eq(fld3, fld3v)
   .eq(fld4, fld4v)
-  //.select() should tell us what we just deleted
+  .select() //should tell us what we just deleted ?
   console.log('we reached line 72 delSupabaseMulti')
   supabaseData = data //supabase seems to like the word 'data'
   // no select, no limit (mysterious why it works without them)

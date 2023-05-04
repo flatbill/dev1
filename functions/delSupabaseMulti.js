@@ -68,7 +68,6 @@ exports.handler = async (event, context) => {
   .eq(fld2, fld2v)
   .eq(fld3, fld3v)
   .eq(fld4, fld4v)
-  .limit(2)
   .select()
   console.log('we reached line 71 delSupabaseMulti')
   supabaseData = data //supabase seems to like the word 'data'

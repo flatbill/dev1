@@ -68,8 +68,11 @@ exports.handler = async (event, context) => {
   .eq(fld2, fld2v)
   .eq(fld3, fld3v)
   .eq(fld4, fld4v)
-  console.log('we reached line 71 delSupabaseMulti')
+  //.select() should tell us what we just deleted
+  console.log('we reached line 72 delSupabaseMulti')
   supabaseData = data //supabase seems to like the word 'data'
+  // no select, no limit (mysterious why it works without them)
+  // so supabaseData is null
   console.log('73 supabaseData:')
   console.table(supabaseData)
   let myObj2 = {  supabaseData }
@@ -78,7 +81,7 @@ exports.handler = async (event, context) => {
     headers: {'Access-Control-Allow-Origin': '*'},
     body:  JSON.stringify(myObj2)
   }
-  console.log('81,',fld1,fld1v,fld2,fld2v,fld3,fld3v,fld4,fld4v)
+  console.log('84,',fld1,fld1v,fld2,fld2v,fld3,fld3v,fld4,fld4v)
   console.log('we reached the end of delSupabaseMulti. ready to return.')
   return myResponse   
 } // end export.handler 

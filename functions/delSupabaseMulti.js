@@ -71,8 +71,7 @@ exports.handler = async (event, context) => {
   .select() //should tell us what we just deleted ?
   console.log('we reached line 72 delSupabaseMulti')
   supabaseData = data //supabase seems to like the word 'data'
-  // no select, no limit (mysterious why it works without them)
-  // so supabaseData is null
+  //  no limit (mysterious why it works without it?)
   console.log('73 supabaseData:')
   console.table(supabaseData)
   let myObj2 = {  supabaseData }

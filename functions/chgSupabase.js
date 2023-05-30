@@ -25,7 +25,7 @@ exports.handler = async (event, context) => {
       myTxt += dq + myKey + dq + ':' + dq + myValue + dq + ','
     } // end if
     tempCount = tempCount + 1
-    if (tempCount > 6)  {break}
+    if (tempCount > 2)  {break}
   }  // end for
   myTxt = myTxt.substring(0, myTxt.length - 1) + '}' //replace last char with '}'
   console.log('28 myTxt:',myTxt)

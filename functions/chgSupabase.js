@@ -19,10 +19,13 @@ exports.handler = async (event, context) => {
 
   let myTxt = '{'
   let dq = '"'
+  let tempCount = 0
   for (let [myKey, myValue] of Object.entries(qsParms)) {
     if(myKey!='tbl' && myKey!='id'){ //we only want field names, not the table name or rec id.
       myTxt += dq + myKey + dq + ':' + dq + myValue + dq + ','
     } // end if
+    tempCount = tempCount + 1
+    if (tempCount > 6)  {break}
   }  // end for
   myTxt = myTxt.substring(0, myTxt.length - 1) + '}' //replace last char with '}'
   console.log('28 myTxt:',myTxt)
@@ -32,11 +35,11 @@ exports.handler = async (event, context) => {
   console.log('32 myObj:')
   console.table(myObj)
   console.log('33 gonna await supabaseClient')
+  // .update({ questTxt: 'Australia' }) // .update(myObj)
 
   let { data } = await supabaseClient
   .from(tbl)
-  
-  .update({ questTxt: 'Australia' }) // .update(myObj)
+  .update(myObj)
   .eq('id', id)
   .select()
 

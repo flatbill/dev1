@@ -35,7 +35,8 @@ exports.handler = async (event, context) => {
 
   let { data } = await supabaseClient
   .from(tbl)
-  .update(myObj)
+  
+  .update({ questTxt: 'Australia' }) // .update(myObj)
   .eq('id', id)
   .select()
 

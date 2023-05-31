@@ -19,13 +19,13 @@ exports.handler = async (event, context) => {
 
   let myTxt = '{'
   let dq = '"'
-  let tempCount = 0
   for (let [myKey, myValue] of Object.entries(qsParms)) {
     if(myKey!='tbl' && myKey!='id'){ //we only want field names, not the table name or rec id.
       myTxt += dq + myKey + dq + ':' + dq + myValue + dq + ','
+      myTxt  =  myTxt.replaceAll('"['  , '["') //fix array fields
+      myTxt  =  myTxt.replaceAll(']"'  , '"]') //fix array fields
+
     } // end if
-    tempCount = tempCount + 1
-    if (tempCount >= 15)  {break}
   }  // end for
   myTxt = myTxt.substring(0, myTxt.length - 1) + '}' //replace last char with '}'
   console.log('28 myTxt:',myTxt)

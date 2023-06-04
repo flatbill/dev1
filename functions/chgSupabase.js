@@ -24,7 +24,9 @@ exports.handler = async (event, context) => {
       // myValue = myValue.replaceAll(',', dq + myValue + dq)
       if( myValue.includes('[') ) {
         console.log ('25 myValue contains bracket')
-        myValue = dq + myValue + dq
+        // myValue = dq + myValue + dq
+        myValue  =  myValue.replaceAll(','  , '","')  //wrap array fields
+
         console.log('mValue: ',myValue)
 
       }

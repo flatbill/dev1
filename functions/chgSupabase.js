@@ -28,13 +28,11 @@ exports.handler = async (event, context) => {
         myValue  =  myValue.replaceAll(']'  , '"]')  //fix right bracket
         myValue  =  myValue.replaceAll(','  , '","')  //fix commas between array fields
         console.log('mValue: ',myValue)
-
+      } else {
+        myValue =  dq + myValue + dq 
       }
-      myTxt += dq + myKey + dq + ':' + dq + myValue + dq + ','
-      // myTxt  =  myTxt.replaceAll('"['  , '["') //fix array fields
-      // myTxt  =  myTxt.replaceAll(']"'  , '"]') //fix array fields
-
     } // end if
+    myTxt = myTxt + dq + myKey + dq + ':' + myValue + ','
   }  // end for
   myTxt = myTxt.substring(0, myTxt.length - 1) + '}' //replace last char with '}'
   console.log('28 myTxt:',myTxt)

@@ -22,8 +22,12 @@ exports.handler = async (event, context) => {
   for (let [myKey, myValue] of Object.entries(qsParms)) {
     if(myKey!='tbl' && myKey!='id'){ //we only want field names, not the table name or rec id.
       // myValue = myValue.replaceAll(',', dq + myValue + dq)
-      console.log('mValue:)',myValue)
-      if( myValue.includes(',') ) {console.log ('25 myValue contains comma')}
+      if( myValue.includes('[') ) {
+        console.log ('25 myValue contains bracket')
+        myValue = dq + myValue + dq
+        console.log('mValue: ',myValue)
+
+      }
       myTxt += dq + myKey + dq + ':' + dq + myValue + dq + ','
       // myTxt  =  myTxt.replaceAll('"['  , '["') //fix array fields
       // myTxt  =  myTxt.replaceAll(']"'  , '"]') //fix array fields

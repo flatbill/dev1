@@ -30,9 +30,9 @@ exports.handler = async (event, context) => {
         console.log('mValue: ',myValue)
       } else {
         myValue =  dq + myValue + dq 
-      }
+      }  // end if
+      myTxt = myTxt + dq + myKey + dq + ':' + myValue + ','
     } // end if
-    myTxt = myTxt + dq + myKey + dq + ':' + myValue + ','
   }  // end for
   myTxt = myTxt.substring(0, myTxt.length - 1) + '}' //replace last char with '}'
   console.log('28 myTxt:',myTxt)
